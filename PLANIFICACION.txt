@@ -1,48 +1,46 @@
 PLANIFICACION:
 
 Jugadores - Atributos:
-- Numero
+- Numero (Numero del jugador)
 - EstadoJuego (Si es su turno)
-- Mazo
+- Mazo (Lista de 6 cartas que tendra el jugador)
 Metodo:
-- RecogerCarta()
-- JugarCarta
-- DescartarCarta
-- PasarTurno
-
+- RecogerCarta(): Los jugadores podran recoger una carta del MazoJuego, cuando hagan esto se recogera la carta que este en la cabezera del MazoJuego
+- JugarCarta(): Los jugadores Podran escoger una carta del mazo y jugarla, las reglas de la carta jugada se verificara en la clase Carta, si el jugador no puede jugar ninguna carta del mazo, se procedera a descartar una carta que elija y coger una del mazo del juego
+- DescartarCarta(): El jugador es capaz de descartar una carta de su mazo al pozo
+- PasarTurno(): Funcion unica para cambiar el estado de juego (O se puede hacer directamente en la funcion Jugar carta)
 
 Equipos - Atributos:
-- Jugadores
-- Puntaje
-- MillasRecorridas
-- ZonaSeguridad
-- ZonaPuja
-- ZonaLimiteV
-- ZonaDistancia
+- Jugadores: Jugadores que conforman al equipo
+- Puntaje: Puntaje del equipo 
+- MillasRecorridas: Millas recorridas en cada juego
+- ZonaSeguridad: Lista de cartas (Usada para manejar alguna restricciones de la zona)
+- ZonaPuja: Lista de cartas (Usada para manejar alguna restricciones de la zona)
+- ZonaLimiteV: Lista de cartas (Usada para manejar alguna restricciones de la zona)
+- ZonaDistancia: Lista de cartas (Usada para manejar alguna restricciones de la zona)
 Metodo:
-- TurnoJugador()
-- SumarMillas()
-- VerificarVictoria()
+- TurnoJugador(): Maneja Todo lo que puede hacer un jugador en su turno
+- SumarMillas(): Suma las millas jugadas por cada jugador del equipo
 
 Cartas - Atributos: (INTERFACE)
 - Nombre
 Metodos:
 - FunciónCarta()
+- Restriccion(): Verifica si la carta si se puede jugar y retorna true o false
 NOTA: Cada tipo Hereda de cartas
 
 MazoJuego - Atributos:
-- CartasDisponibles: List
-- CartasDescartadas: List
-- NumCartas
+- CartasDisponibles: List (Cartas disponibles en el mazo de juego)
+- CartasDescartadas: List (Cartas desechadas en el pozo)
 Metodo:
-- ReolverCartas()
-- DescontarCarta()
+- ReolverCartas(): Metodo encargado de revolver todas las cartas
+- DescontarCarta(): Metodo encargado de descontar las cartas del mazo del juego (No es necesario)
 
 Juego - Atributos:
 - Equipos
 - MazoJuego
 Metodo:
-- IniciarCartas()
+- IniciarCartas(): 
 - IniciarJuego()
 - JugarRonda()
 - TerminarPartida()
