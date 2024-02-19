@@ -1,15 +1,17 @@
-package Factory;
+package Model.Factory;
 
 import java.util.ArrayList;
 
-import Builder.Carta;
+import Model.Builder.Carta;
 
-public class ZonaSeguridad implements Zona{
 
-    public ArrayList<Carta> seguridad = new ArrayList<>();
+
+public class Distancia implements Zona{
+
+    public ArrayList<Carta> Distancia = new ArrayList<>();
     @Override
-    public void add(Carta carta) {
-        carta.getClass()
+    public boolean add(Carta carta) {
+        
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'add'");
     }

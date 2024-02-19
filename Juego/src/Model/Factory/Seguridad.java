@@ -1,12 +1,12 @@
-package Factory;
+package Model.Factory;
 
 import java.util.ArrayList;
 
-import Builder.Carta;
+import Model.Builder.Carta;
 
-public class Puja implements Zona{
+public class Seguridad implements Zona{
 
-    public ArrayList<Carta> puja = new ArrayList<>();
+    public ArrayList<Carta> seguridad = new ArrayList<>();
     @Override
     public boolean add(Carta carta) {
         

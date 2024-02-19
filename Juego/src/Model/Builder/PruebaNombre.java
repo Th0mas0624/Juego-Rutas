@@ -1,4 +1,4 @@
-package Builder;
+package Model.Builder;
 
 public class PruebaNombre {
 	public String nombreClase() {
