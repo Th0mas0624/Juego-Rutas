@@ -26,4 +26,12 @@ public class Equipo {
     public void addCartasZona(){
 
     }
+
+    public void agregarJugadores(String modoJuego){
+        
+    }
+
+    public ArrayList<Jugador> getJugadores(){
+        return jugadores;
+    }
 }

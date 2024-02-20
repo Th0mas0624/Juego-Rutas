@@ -1,6 +1,9 @@
 package Model.Builder;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import Model.Equipo;
 
 public class MazoJuego {
     private ArrayList<Carta> cartasDisponibles;
@@ -16,5 +19,13 @@ public class MazoJuego {
 
     public void crearCartas(){
         
+    }
+
+    public void recolectarCartas(List<Equipo> equipos){
+        
+    }
+
+    public ArrayList<Carta> getCartasDisponibles(){
+        return cartasDisponibles;
     }
 }
