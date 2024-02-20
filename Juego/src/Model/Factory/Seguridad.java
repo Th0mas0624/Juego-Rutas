@@ -25,5 +25,10 @@ public class Seguridad implements Zona{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
+
+    @Override
+    public ArrayList<Carta> getZona() {
+        return seguridad;
+    }
     
 }

@@ -7,6 +7,7 @@ import Model.Builder.Carta;
 public class Puja implements Zona{
 
     public ArrayList<Carta> puja = new ArrayList<>();
+    
     @Override
     public boolean add(Carta carta) {
         
@@ -25,5 +26,11 @@ public class Puja implements Zona{
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
+
+    @Override
+    public ArrayList<Carta> getZona() {
+        return puja;
+    }
+
     
 }

@@ -9,22 +9,18 @@ public class ListFactory {
         DISTANCIA
     }
 
-    public void createList(listType type){
+    public Zona createList(listType type){
         switch (type) {
             case SEGURIDAD:
-                
-                break;
+                return new Seguridad();
             case LIMITEV:
-                
-                break;
+                return new LimiteVelocidad();
             case PUJA:
-
-                break;
+                return new Puja();
             case DISTANCIA:
-                break;
-        
+                return new Distancia();
             default:
-                break;
+                return null;
         }
     }
 }

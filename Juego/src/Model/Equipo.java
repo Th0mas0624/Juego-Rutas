@@ -10,7 +10,8 @@ public class Equipo {
     private int puntaje;
     private int millasRecorridas=0;
     private int turno = 0;
-    private ListFactory seguridad, puja,limiteV,distancia;
+    
+    ListFactory list;
 
 
     public Equipo(){
@@ -18,10 +19,10 @@ public class Equipo {
     }
     
     public void crearZonas(){
-        this.limiteV.createList(listType.LIMITEV);
-        this.puja.createList(listType.PUJA);
-        this.distancia.createList(listType.DISTANCIA);
-        this.seguridad.createList(listType.SEGURIDAD);
+        this.list.createList(listType.LIMITEV);
+        this.list.createList(listType.PUJA);
+        this.list.createList(listType.DISTANCIA);
+        this.list.createList(listType.SEGURIDAD);
     }
 
     public void turnoJugador(){
@@ -34,7 +35,7 @@ public class Equipo {
 
     //CORREGIR ESTO
     public void sumarMillas(int millas){
-        this.millasRecorridas += millas;
+        //this.millasRecorridas += millas;
     }
 
     //Por si acaso se complica la logica en turno jugador, separar las funciones
@@ -53,6 +54,10 @@ public class Equipo {
     
     public void sumarPuntos(boolean recorridoC){
         //recorridoC identifica si hizo el recorrido completo
+        if (recorridoC) {
+            this.puntaje += 400;
+        }
+        //if ()
 
     }
 
