@@ -3,9 +3,9 @@ package Model.Factory;
 public class ListFactory {
     
     public enum listType{
+        PUJA,
+        LIMITEV,
         SEGURIDAD,
-        ATAQUE,
-        DEFENSA,
         DISTANCIA
     }
 
@@ -14,10 +14,10 @@ public class ListFactory {
             case SEGURIDAD:
                 
                 break;
-            case ATAQUE:
+            case LIMITEV:
                 
                 break;
-            case DEFENSA:
+            case PUJA:
 
                 break;
             case DISTANCIA:

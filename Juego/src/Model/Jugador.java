@@ -5,7 +5,6 @@ import Model.Builder.Carta;
 
 public class Jugador {
     private int numero;
-    private boolean estadoJuego;
     private ArrayList<Carta> mano;
 
     public void jugada(){

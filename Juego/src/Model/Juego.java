@@ -27,12 +27,12 @@ public class Juego {
         if (modoJuego == "Equipos"){
             for (int i = 0; i < numJugadores/2; i++) {
                 equipos.add(new Equipo());
-                equipos.get(i).agregarJugadores("Equipos");
+                equipos.get(i).agregarJugadores(numJugadores,"Equipos");
             }
         }else if(modoJuego == "Solitario"){
             for (int i = 0; i < numJugadores; i++) {
                 equipos.add(new Equipo());
-                equipos.get(i).agregarJugadores("Solitario");
+                equipos.get(i).agregarJugadores(numJugadores,"Solitario");
             }
         }else{
             System.err.println("Modo de juego invalido");
@@ -56,12 +56,26 @@ public class Juego {
         }
     }
 
-    public void JugarRonda(){
+    public void jugarRonda(){
+        for (Equipo equipo : equipos) {
+            equipo.turnoJugador();
+            // logica encargada de ir sumando puntos cada vez que algun equipo complete las 1000 millas en cada partida
+            if (equipo.getMillasRecorridas() >= 1000) {
+                equipo.sumarPuntos(true);
+            }
+            // Logica encargada de sumar puntos si la partida se queda sin cartas y no hay mas movimientos
+            else if(mazoJuego.getCartasDisponibles().size() == 0){
+                equipo.sumarPuntos(false);
+            }
 
+            if(equipo.getPuntaje() >= 5000){
+                // Logica para terminar la partida
+            }
+        }
     }
 
     public void TerminarPartida(){
-
+        
     }
     
 }
