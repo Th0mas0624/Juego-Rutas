@@ -2,6 +2,7 @@ package Model;
 import java.util.ArrayList;
 
 import Model.Factory.ListFactory;
+import Model.Factory.Zona;
 import Model.Factory.ListFactory.listType;
 
 public class Equipo {
@@ -10,7 +11,7 @@ public class Equipo {
     private int puntaje;
     private int millasRecorridas=0;
     private int turno = 0;
-    
+    private Zona seguridad, ataque, distancia, defensa;
     ListFactory list;
 
 
@@ -19,22 +20,34 @@ public class Equipo {
     }
     
     public void crearZonas(){
-        this.list.createList(listType.LIMITEV);
-        this.list.createList(listType.PUJA);
-        this.list.createList(listType.DISTANCIA);
-        this.list.createList(listType.SEGURIDAD);
+        seguridad = this.list.createList(listType.LIMITEV);
+        ataque = this.list.createList(listType.PUJA);
+        defensa = this.list.createList(listType.DISTANCIA);
+        distancia = this.list.createList(listType.SEGURIDAD);
     }
 
+    //Verifica turno de jugador, pero aqui es para equipos, arreglar esto
     public void turnoJugador(){
-        if(turno % 2 == 0){
-            jugadores.get(0).jugada();
+        if (jugadores.size() > 1) {
+            if(turno % 2 == 0){
+                jugadores.get(0).jugada(this);
+            }else{
+                jugadores.get(1).jugada(this);
+            }
         }else{
-            jugadores.get(1).jugada();
+            jugadores.get(0).jugada(this);
         }
     }
 
-    //CORREGIR ESTO
+    //CORREGIR ESTO, ESTA MAAL
     public void sumarMillas(int millas){
+        if (distancia.getZona().size() > 0) {
+            for (int i = 0; i < distancia.getZona().size(); i++) {
+                if (distancia.getZona().get(i).getfuncion() == "200") {
+                    
+                }
+            }
+        }
         //this.millasRecorridas += millas;
     }
 
