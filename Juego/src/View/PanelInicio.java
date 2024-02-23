@@ -11,15 +11,25 @@ import java.awt.Toolkit;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+import Controller.InicioController;
+import Model.Juego;
+
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 public class PanelInicio extends javax.swing.JPanel {
 
-    private Image imagen = Toolkit.getDefaultToolkit().getImage("Juego/Pictures/Fondo inicio.png");
+    private Image imagen = Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\Fondo inicio.jpg");
     public FrameJuego frame;
+    public ImageIcon iconoEscalado; //Atributo para configurar el icono de los botones
+    public GridBagConstraints gbc = new GridBagConstraints(); //Restricciones para la ubicaion de los botones
+    public InicioController iController = new InicioController(this); //Controlador para botones de seleccion modo de juego
+    //Botones iniciales de juego
     private JButton equipos;
     private JButton solitario;
-    public PanelInicio(FrameJuego frame){
-        this.frame = frame;
+
+    public Juego juego;
+    public PanelInicio(Juego juego){
+        this.juego = juego;
         initComponents();
     }
 
@@ -31,72 +41,71 @@ public class PanelInicio extends javax.swing.JPanel {
     }
 
     private void initComponents(){
-        configBotones();
-
-        this.setLayout(new GridBagLayout()); // Establece GridBagLayout como el layout manager del panel
-        GridBagConstraints gbc = new GridBagConstraints();
-        
-        
-         // Configuraciones para centrar los componentes en el panel
-         gbc.gridx = 0; // Posición inicial X
-         gbc.gridy = 0; // Posición inicial Y
-         gbc.gridwidth = 1; // Ocupa 1 columna
-         gbc.anchor = GridBagConstraints.CENTER; // Centra el componente
-         gbc.fill = GridBagConstraints.HORIZONTAL; // Permite que los botones se expandan horizontalmente
-         
-         // Configuraciones para espaciamiento entre botones
-         gbc.weightx = 0;
-         gbc.weighty = 0;
-
-         gbc.insets = new Insets(10, 0, 10, 0);
- 
-         // Añade el primer botón 'equipos' con las restricciones
-         this.add(equipos, gbc);
-         
-         // Incrementa 'gbc.gridy' para colocar el siguiente componente debajo del anterior
-         gbc.gridy = 1; // Mueve el siguiente componente una posición hacia abajo
- 
-         // Añade el segundo botón 'solitario' con las restricciones
-         this.add(solitario, gbc);
-    }
-
-    public void configBotones(){
-
-        ImageIcon iconoOriginal = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\boton inicio.png"));
-        Image imagen = iconoOriginal.getImage(); // Transforma el Icon en Image para poder escalarlo
-        Image imagenEscalada = imagen.getScaledInstance(200, 50, Image.SCALE_SMOOTH); // Escala la imagen al tamaño del botón
-        ImageIcon iconoEscalado = new ImageIcon(imagenEscalada); // Transforma de vuelta a ImageIcon para poder usarlo en el botón
-        
         equipos = new JButton("Equipos");
         solitario = new JButton("Solitario");
+        this.setLayout(new GridBagLayout()); // Establece GridBagLayout como el layout manager del panel
 
+        adquirirIconBoton();
+        configRestricciones();
+        configBoton(equipos);
+        configBoton(solitario);
+    }
+
+    public void configRestricciones(){
+        // Configuraciones para centrar los componentes en el panel
+        gbc.gridx = 0; // Posición inicial X
+        gbc.gridy = 0; // Posición inicial Y
+        gbc.gridwidth = 1; // Ocupa 1 columna
+        gbc.anchor = GridBagConstraints.CENTER; // Centra el componente
+        gbc.fill = GridBagConstraints.HORIZONTAL; // Permite que los botones se expandan horizontalmente
+        
+        // Configuraciones para espaciamiento entre botones
+        gbc.weightx = 0;
+        gbc.weighty = 0;
+
+        gbc.insets = new Insets(10, 0, 10, 0);
+    }
+
+    public void adquirirIconBoton(){
+        ImageIcon iconoOriginal = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\boton inicio.png"));
+        Image imagen = iconoOriginal.getImage(); // Transforma el Icon en Image para poder escalarlo
+        Image imagenEscalada = imagen.getScaledInstance(300, 50, Image.SCALE_SMOOTH); // Escala la imagen al tamaño del botón
+        iconoEscalado = new ImageIcon(imagenEscalada); // Transforma de vuelta a ImageIcon para poder usarlo en el botón
+    }
+
+    public void configBoton(JButton boton){
         //Ajusta el tamaño del boton
-        equipos.setPreferredSize(new Dimension(200,50));
-        solitario.setPreferredSize(new Dimension(200,50));
+        boton.setPreferredSize(new Dimension(300,50));
 
         //Ajusta la fuente de la letra y el tamaño
-        equipos.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36));
-        solitario.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36));
+        boton.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36));
+
         // Establece el icono escalado en los botones
-        equipos.setIcon(iconoEscalado);
-        solitario.setIcon(iconoEscalado);
+        boton.setIcon(iconoEscalado);
 
         // Alinea el texto y el icono en el botón
-        equipos.setHorizontalTextPosition(JButton.CENTER);
-        equipos.setVerticalTextPosition(JButton.CENTER);
-        solitario.setHorizontalTextPosition(JButton.CENTER);
-        solitario.setVerticalTextPosition(JButton.CENTER);
+        boton.setHorizontalTextPosition(JButton.CENTER);
+        boton.setVerticalTextPosition(JButton.CENTER);
 
         // Elimina elementos del boton para que solo se vea la imagen y el texto
-        equipos.setBorderPainted(false);
-        equipos.setContentAreaFilled(false);
-        equipos.setFocusPainted(false);
-        equipos.setOpaque(false);
+        //boton.setBorderPainted(false);
+        boton.setContentAreaFilled(false);
+        boton.setFocusPainted(false);
+        boton.setOpaque(false);
 
-        solitario.setBorderPainted(false);
-        solitario.setContentAreaFilled(false);
-        solitario.setFocusPainted(false);
-        solitario.setOpaque(false);
-        
+        addButton(boton);
+    }
+
+    public void addButton(JButton boton){
+        this.add(boton,gbc);
+        // Incrementa 'gbc.gridy' para colocar el siguiente componente debajo del anterior
+        gbc.gridy += 2; // Mueve el siguiente componente una posición hacia abajo
+        boton.addActionListener(iController);
+    }
+    public void setFrame(FrameJuego frame){
+        this.frame = frame;
+    }
+    public FrameJuego getFrame(){
+        return this.frame;
     }
 }

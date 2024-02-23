@@ -16,7 +16,7 @@ public class Equipo {
 
 
     public Equipo(){
-        crearZonas();
+        
     }
     
     public void crearZonas(){

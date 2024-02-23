@@ -29,11 +29,13 @@ public class Juego {
                 equipos.add(new Equipo());
                 equipos.get(i).agregarJugadores(numJugadores,"Equipos");
             }
+            System.out.println("Juego Iniciado en modo equipos"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
         }else if(modoJuego == "Solitario"){
             for (int i = 0; i < numJugadores; i++) {
                 equipos.add(new Equipo());
                 equipos.get(i).agregarJugadores(numJugadores,"Solitario");
             }
+            System.out.println("Juego Iniciado en modo solitario"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
         }else{
             System.err.println("Modo de juego invalido");
         }
@@ -56,6 +58,7 @@ public class Juego {
         }
     }
 
+    //ARREGLAR ESTO PARA SEGUIR JUGANDO RONDAS EN CADA PARTIDA
     public void jugarRonda(){
         for (Equipo equipo : equipos) {
             equipo.turnoJugador();

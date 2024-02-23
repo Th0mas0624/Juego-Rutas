@@ -4,9 +4,10 @@ import javax.swing.JFrame;
 
 public class FrameJuego extends javax.swing.JFrame {
 
-    PanelInicio inicio = new PanelInicio(this);
-    public FrameJuego() {
+    PanelInicio inicio;
+    public FrameJuego(PanelInicio inicio) {
         super("Rutas");
+        this.inicio = inicio;
         initComponents();
     }
 
