@@ -12,24 +12,22 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import Controller.InicioController;
-import Model.Juego;
 
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 public class PanelInicio extends javax.swing.JPanel {
 
     private Image imagen = Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\Fondo inicio.jpg");
     public FrameJuego frame;
     public ImageIcon iconoEscalado; //Atributo para configurar el icono de los botones
     public GridBagConstraints gbc = new GridBagConstraints(); //Restricciones para la ubicaion de los botones
-    public InicioController iController = new InicioController(this); //Controlador para botones de seleccion modo de juego
+    public InicioController iController; //Controlador para botones de seleccion modo de juego
+    
     //Botones iniciales de juego
     private JButton equipos;
     private JButton solitario;
 
-    public Juego juego;
-    public PanelInicio(Juego juego){
-        this.juego = juego;
+    //public Juego juego;
+    public PanelInicio(InicioController icController){
+        this.iController = icController;
         initComponents();
     }
 
@@ -107,5 +105,12 @@ public class PanelInicio extends javax.swing.JPanel {
     }
     public FrameJuego getFrame(){
         return this.frame;
+    }
+    public void resetEstadoInicial() {
+        // Limpia el panel y vuelve a agregar los componentes iniciales
+        this.removeAll();
+        initComponents();
+        revalidate();
+        repaint();
     }
 }

@@ -9,10 +9,15 @@ public class main {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
 
+                // Crea la clase para iniciar el juego
                 Juego juego = new Juego();
-                PanelInicio inicio = new PanelInicio(juego); 
+                // Crea el controlador encargado de controlar el inicio del juego
+                InicioController iController = new InicioController(juego);
+                // Panel de inicio para la seleccion del modo de juego
+                PanelInicio inicio = new PanelInicio(iController); 
+                // Frame del juego
                 FrameJuego ventana = new FrameJuego(inicio); // Crea una instancia de MiVentana
-
+                iController.setInicio(inicio);
                 inicio.setFrame(ventana);
             }
         });

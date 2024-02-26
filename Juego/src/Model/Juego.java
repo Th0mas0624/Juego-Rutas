@@ -1,6 +1,6 @@
 package Model;
 import java.util.ArrayList;
-import java.util.List;
+
 
 import Model.Builder.Carta;
 import Model.Builder.MazoJuego;
@@ -42,7 +42,7 @@ public class Juego {
         iniciarCartas(true);
     }
 
-    //metodo encargado de repartir las cartas a los jugadores
+    //metodo encargado de repartir las cartas iniciales a cada jugador
     public void repartirCartas(){
         ArrayList<Carta> copyMano = new ArrayList<>();
         for (Equipo equipo : equipos) {
@@ -58,7 +58,7 @@ public class Juego {
         }
     }
 
-    //ARREGLAR ESTO PARA SEGUIR JUGANDO RONDAS EN CADA PARTIDA
+    //WARNING: ARREGLAR ESTO PARA SEGUIR JUGANDO RONDAS EN CADA PARTIDA
     public void jugarRonda(){
         for (Equipo equipo : equipos) {
             equipo.turnoJugador();
