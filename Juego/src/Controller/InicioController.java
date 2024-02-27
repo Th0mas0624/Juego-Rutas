@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JPanel;
 
 import Model.Juego;
 import View.PanelInicio;
@@ -18,6 +19,7 @@ public class InicioController implements ActionListener{
         this.juego = juego;
         
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         // Identificar qué botón fue presionado y actuar en consecuencia
@@ -37,7 +39,7 @@ public class InicioController implements ActionListener{
 
             panelInicio.revalidate();
             panelInicio.repaint();
-        } else if (button.getText().equals("Solitario")) {
+        } else if (button.getText().equals("Individual")) {
             // Lógica para el botón Solitario
             JButton dosEquipos = new JButton("2 Jugadores");
             dosEquipos.setName("2");
@@ -51,12 +53,16 @@ public class InicioController implements ActionListener{
             panelInicio.revalidate();
             panelInicio.repaint();
         }else if(button.getText().equals("2 Jugadores") || button.getText().equals("3 Jugadores")){
-            juego.iniciarJuego(Integer.parseInt(button.getName()), "Solitario");
+            juego.iniciarJuego(Integer.parseInt(button.getName()), "Individual");            
+            panelInicio.getFrame().panelRondas();
+                      
         }else if(button.getText().equals("2 Equipos") || button.getText().equals("3 Equipos")){
             juego.iniciarJuego(Integer.parseInt(button.getName()), "Equipos");
+            panelInicio.getFrame().panelRondas();
         }
         
     }
+
     public void setInicio(PanelInicio inicio){
         this.panelInicio = inicio;
     }

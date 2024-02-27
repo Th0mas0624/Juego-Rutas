@@ -40,7 +40,7 @@ public class PanelInicio extends javax.swing.JPanel {
 
     private void initComponents(){
         equipos = new JButton("Equipos");
-        solitario = new JButton("Solitario");
+        solitario = new JButton("Individual");
         this.setLayout(new GridBagLayout()); // Establece GridBagLayout como el layout manager del panel
 
         adquirirIconBoton();
@@ -100,17 +100,17 @@ public class PanelInicio extends javax.swing.JPanel {
         gbc.gridy += 2; // Mueve el siguiente componente una posición hacia abajo
         boton.addActionListener(iController);
     }
-    public void setFrame(FrameJuego frame){
-        this.frame = frame;
-    }
-    public FrameJuego getFrame(){
-        return this.frame;
-    }
     public void resetEstadoInicial() {
         // Limpia el panel y vuelve a agregar los componentes iniciales
         this.removeAll();
         initComponents();
         revalidate();
         repaint();
+    }
+    public void setFrame(FrameJuego frame){
+        this.frame = frame;
+    }
+    public FrameJuego getFrame(){
+        return this.frame;
     }
 }

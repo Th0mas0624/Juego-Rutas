@@ -7,15 +7,22 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+import Controller.RondasController;
+import Model.Juego;
 
 public class FrameJuego extends javax.swing.JFrame {
 
     PanelInicio inicio;
-    
-    public FrameJuego(PanelInicio inicio) {
+    JButton btnRetroceso = new JButton("<-");
+    Juego juego;
+    public FrameJuego(PanelInicio inicio, Juego juego) {
         super("Rutas");
         this.inicio = inicio;
+        this.juego = juego;
         initComponents();
+        
     }
 
     private void initComponents() {
@@ -32,7 +39,7 @@ public class FrameJuego extends javax.swing.JFrame {
 
     private void configBotonRetroceso() {
         // Añade el botón de retroceso al Frame
-        JButton btnRetroceso = new JButton("<-");
+        
         btnRetroceso.setBackground(new Color(50,120,250));
         btnRetroceso.setBounds(10, 10, 50, 50);
         
@@ -45,5 +52,20 @@ public class FrameJuego extends javax.swing.JFrame {
                 inicio.resetEstadoInicial();
             }
         });
+    }
+
+    public void panelRondas(){
+        
+        System.out.println("SI SE UNDIO");
+        this.remove(inicio);  
+        this.remove(btnRetroceso);
+
+        RondasController rController = new RondasController(juego);
+        PanelRondas pRondas = new PanelRondas(rController);
+        rController.setPRondas(pRondas);
+
+        this.add(pRondas);
+        this.revalidate();
+        this.repaint();
     }
 }

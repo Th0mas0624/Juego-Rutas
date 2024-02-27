@@ -16,7 +16,7 @@ public class main {
                 // Panel de inicio para la seleccion del modo de juego
                 PanelInicio inicio = new PanelInicio(iController); 
                 // Frame del juego
-                FrameJuego ventana = new FrameJuego(inicio); // Crea una instancia de MiVentana
+                FrameJuego ventana = new FrameJuego(inicio, juego); // Crea una instancia de MiVentana
                 iController.setInicio(inicio);
                 inicio.setFrame(ventana);
             }

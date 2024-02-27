@@ -77,6 +77,9 @@ public class Juego {
         }
     }
 
+    public ArrayList<Equipo> getEquipos(){
+        return equipos;
+    }
     public void TerminarPartida(){
         
     }
