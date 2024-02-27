@@ -9,13 +9,14 @@ public class Juego {
     
     private ArrayList<Equipo> equipos = new ArrayList<>();
     private MazoJuego mazoJuego = new MazoJuego();
-
+    public Jugador jugadorActual;
 
     //Funcion encargada de crear las cartas (para primera jugada) o de Recolartarlas en cada inicio de ronda
     public void iniciarCartas(boolean InicioJuego){ //InicioJuego:
         if (InicioJuego) {
             mazoJuego.crearCartas();
             mazoJuego.revolverCartas();
+            
         }else{
             mazoJuego.recolectarCartas(equipos);
             mazoJuego.revolverCartas();
@@ -44,8 +45,10 @@ public class Juego {
 
     //metodo encargado de repartir las cartas iniciales a cada jugador
     public void repartirCartas(){
-        ArrayList<Carta> copyMano = new ArrayList<>();
+        
+        
         for (Equipo equipo : equipos) {
+            ArrayList<Carta> copyMano = new ArrayList<>();
             for (Jugador jugador : equipo.getJugadores()) {
                 for (int i = 0; i < 6; i++) {
                     if (mazoJuego.getCartasDisponibles().size() > 0) {
@@ -53,20 +56,22 @@ public class Juego {
                     }
                 }
                 jugador.setMano(copyMano);
-                copyMano.clear();
+                System.out.println(jugador.getMano().size());
+                //copyMano.clear();
             }
         }
     }
 
     //WARNING: ARREGLAR ESTO PARA SEGUIR JUGANDO RONDAS EN CADA PARTIDA
-    public void jugarRonda(){     
+    public void jugarRonda(){ 
+        repartirCartas();
         for (Equipo equipo : equipos) {
             
             if(equipo.getPuntaje() >= 5000){
                 TerminarPartida(equipo);
             }
             else{
-                equipo.turnoJugador();
+                jugadorActual = equipo.turnoJugador();
                 // logica encargada de ir sumando puntos cada vez que algun equipo complete las 1000 millas en cada partida
                 if (equipo.getMillasRecorridas() >= 1000) {
                     equipo.sumarPuntos(true);

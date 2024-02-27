@@ -29,15 +29,18 @@ public class Equipo {
     }
 
     //Verifica turno de jugador
-    public void turnoJugador(){
+    public Jugador turnoJugador(){
         if (jugadores.size() > 1) {
             if(turno % 2 == 0){
                 jugadores.get(0).jugada(this);
+                return jugadores.get(0);
             }else{
                 jugadores.get(1).jugada(this);
+                return jugadores.get(1);
             }
         }else{
             jugadores.get(0).jugada(this);
+            return jugadores.get(0);
         }
     }
 

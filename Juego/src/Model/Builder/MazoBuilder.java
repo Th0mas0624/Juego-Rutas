@@ -15,6 +15,7 @@ public class MazoBuilder {
                 Carta carta = new Ataque();
                 carta.setFuncion(funciones[i]);
                 mazo.add(carta);
+                System.out.println(carta.getClass().getName()+"       "+carta.getfuncion());
             }
         }
         return this;

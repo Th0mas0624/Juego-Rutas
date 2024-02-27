@@ -1,9 +1,12 @@
 package Controller;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import Model.Juego;
 import View.PanelRondas;
 
-public class RondasController {
+public class RondasController implements ActionListener{
     
     PanelRondas pRondas;
     private Juego juego;
@@ -18,5 +21,12 @@ public class RondasController {
 
     public Juego getJuego(){
         return juego;
+    }
+
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 }
