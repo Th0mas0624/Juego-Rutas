@@ -59,29 +59,33 @@ public class Juego {
     }
 
     //WARNING: ARREGLAR ESTO PARA SEGUIR JUGANDO RONDAS EN CADA PARTIDA
-    public void jugarRonda(){
+    public void jugarRonda(){     
         for (Equipo equipo : equipos) {
-            equipo.turnoJugador();
-            // logica encargada de ir sumando puntos cada vez que algun equipo complete las 1000 millas en cada partida
-            if (equipo.getMillasRecorridas() >= 1000) {
-                equipo.sumarPuntos(true);
-            }
-            // Logica encargada de sumar puntos si la partida se queda sin cartas y no hay mas movimientos
-            else if(mazoJuego.getCartasDisponibles().size() == 0){
-                equipo.sumarPuntos(false);
-            }
-
+            
             if(equipo.getPuntaje() >= 5000){
-                // Logica para terminar la partida
+                TerminarPartida(equipo);
+            }
+            else{
+                equipo.turnoJugador();
+                // logica encargada de ir sumando puntos cada vez que algun equipo complete las 1000 millas en cada partida
+                if (equipo.getMillasRecorridas() >= 1000) {
+                    equipo.sumarPuntos(true);
+                }
+                // Logica encargada de sumar puntos si la partida se queda sin cartas y no hay mas movimientos
+                else if(mazoJuego.getCartasDisponibles().size() == 0){
+                    equipo.sumarPuntos(false);
+                }
             }
         }
     }
 
+    public void TerminarPartida(Equipo equipo){
+        //Implementar esto bien, la idea es detener el juego o dar la posibilidad de comenzar otro juego
+        System.out.println("El ganador es el equipo"+equipo);  
+    }
+
     public ArrayList<Equipo> getEquipos(){
         return equipos;
-    }
-    public void TerminarPartida(){
-        
     }
     
 }

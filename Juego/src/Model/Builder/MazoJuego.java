@@ -30,6 +30,14 @@ public class MazoJuego {
 
     public void recolectarCartas(List<Equipo> equipos){
         for (Equipo equipo : equipos) {
+            cartasDisponibles.addAll(equipo.getlimiteVZona().getZona());
+            cartasDisponibles.addAll(equipo.getSeguridadZona().getZona());
+            cartasDisponibles.addAll(equipo.getPujaZona().getZona());
+            cartasDisponibles.addAll(equipo.getDistanciaZona().getZona());
+            equipo.getlimiteVZona().getZona().clear();
+            equipo.getPujaZona().getZona().clear();
+            equipo.getSeguridadZona().getZona().clear();
+            equipo.getDistanciaZona().getZona().clear();
             for (Jugador jugador : equipo.getJugadores()) {
                 cartasDisponibles.addAll(jugador.getMano());
                 jugador.getMano().clear();

@@ -11,7 +11,7 @@ public class Equipo {
     private int puntaje;
     private int millasRecorridas=0;
     private int turno = 0;
-    private Zona seguridad, ataque, distancia, defensa;
+    private Zona seguridad, puja, distancia, limiteV;
     ListFactory list;
 
 
@@ -20,13 +20,13 @@ public class Equipo {
     }
     
     public void crearZonas(){
-        seguridad = this.list.createList(listType.LIMITEV);
-        ataque = this.list.createList(listType.PUJA);
-        defensa = this.list.createList(listType.DISTANCIA);
-        distancia = this.list.createList(listType.SEGURIDAD);
+        limiteV = this.list.createList(listType.LIMITEV);
+        puja = this.list.createList(listType.PUJA);
+        distancia = this.list.createList(listType.DISTANCIA);
+        seguridad = this.list.createList(listType.SEGURIDAD);
     }
 
-    //Verifica turno de jugador, pero aqui es para equipos, arreglar esto
+    //Verifica turno de jugador
     public void turnoJugador(){
         if (jugadores.size() > 1) {
             if(turno % 2 == 0){
@@ -39,13 +39,12 @@ public class Equipo {
         }
     }
 
-    //CORREGIR ESTO, ESTA MAAL
-    public void sumarMillas(int millas){
+    //Metodo encargado de sumar las millas
+    public void sumarMillas(){
         if (distancia.getZona().size() > 0) {
+            millasRecorridas = 0;
             for (int i = 0; i < distancia.getZona().size(); i++) {
-                if (distancia.getZona().get(i).getfuncion() == "200") {
-                    
-                }
+                millasRecorridas += Integer.parseInt(distancia.getZona().get(i).getfuncion());
             }
         }
         //this.millasRecorridas += millas;
@@ -85,5 +84,18 @@ public class Equipo {
     }
     public int getPuntaje(){
         return puntaje;
+    }
+
+    public Zona getSeguridadZona(){
+        return seguridad;
+    }
+    public Zona getDistanciaZona(){
+        return distancia;
+    }
+    public Zona getPujaZona(){
+        return puja;
+    }
+    public Zona getlimiteVZona(){
+        return limiteV;
     }
 }

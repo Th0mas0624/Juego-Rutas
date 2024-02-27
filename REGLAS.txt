@@ -35,8 +35,7 @@ O de lo contrario si en el sector de seguridad hay una carta prioridad de paso
 
 ZONAS DE JUEGO: 4
 SECTOR DE SEGURIDAD: Se ubican las cartas de velocidad, cuando se juegan
-previamente se colocan en la misma direccion que las otras cartas, pero si 
-se juega como jugada "TK" se colocan transversalmente
+previamente se colocan en la misma direccion que las otras cartas
 SECTOR LIMITE DE VELOCIDAD: van las cartas de ataque y defensa de limite de velocidad
 SECTOR DE PUJA: Aqui van las cartas de problemas y de soluciones
 PARCIALES DE DISTANCIA: Van las cartas de distancia

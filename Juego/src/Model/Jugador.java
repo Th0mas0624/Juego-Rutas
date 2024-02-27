@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import Model.Builder.Carta;
 
 public class Jugador {
+    
     private int numero;
     private ArrayList<Carta> mano;
 
@@ -12,7 +13,7 @@ public class Jugador {
     }
 
     public void recogerCartaMazo(){
-
+        
     }
 
     public void descartarCarta(){

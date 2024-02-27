@@ -12,13 +12,13 @@ public class ListFactory {
     public Zona createList(listType type){
         switch (type) {
             case SEGURIDAD:
-                return new Seguridad();
+                return new ZonaSeguridad();
             case LIMITEV:
-                return new LimiteVelocidad();
+                return new ZonaLimiteVelocidad();
             case PUJA:
-                return new Puja();
+                return new ZonaPuja();
             case DISTANCIA:
-                return new Distancia();
+                return new ZonaDistancia();
             default:
                 return null;
         }
