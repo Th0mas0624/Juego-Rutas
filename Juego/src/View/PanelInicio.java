@@ -16,6 +16,7 @@ import Controller.InicioController;
 public class PanelInicio extends javax.swing.JPanel {
 
     private Image imagen = Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\Fondo inicio.jpg");
+    
     public FrameJuego frame;
     public ImageIcon iconoEscalado; //Atributo para configurar el icono de los botones
     public GridBagConstraints gbc = new GridBagConstraints(); //Restricciones para la ubicaion de los botones
@@ -100,6 +101,7 @@ public class PanelInicio extends javax.swing.JPanel {
         gbc.gridy += 2; // Mueve el siguiente componente una posición hacia abajo
         boton.addActionListener(iController);
     }
+
     public void resetEstadoInicial() {
         // Limpia el panel y vuelve a agregar los componentes iniciales
         this.removeAll();
@@ -107,9 +109,11 @@ public class PanelInicio extends javax.swing.JPanel {
         revalidate();
         repaint();
     }
+    
     public void setFrame(FrameJuego frame){
         this.frame = frame;
     }
+    
     public FrameJuego getFrame(){
         return this.frame;
     }

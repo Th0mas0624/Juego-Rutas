@@ -8,4 +8,8 @@ public class Defensa implements Carta {
         return funcion;
     }
     
+    @Override
+    public void setFuncion(String funcion){
+        this.funcion = funcion;
+    }
 }
