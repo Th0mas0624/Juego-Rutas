@@ -30,10 +30,10 @@ public class Juego {
                 equipos.get(i).agregarJugadores(numJugadores,"Equipos");
             }
             System.out.println("Juego Iniciado en modo equipos"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
-        }else if(modoJuego == "Solitario"){
+        }else if(modoJuego == "Individual"){
             for (int i = 0; i < numJugadores; i++) {
                 equipos.add(new Equipo());
-                equipos.get(i).agregarJugadores(numJugadores,"Solitario");
+                equipos.get(i).agregarJugadores(numJugadores,"Individual");
             }
             System.out.println("Juego Iniciado en modo solitario"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
         }else{

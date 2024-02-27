@@ -9,7 +9,7 @@ public class Jugador {
     private ArrayList<Carta> mano;
 
     public void jugada(Equipo equipo){
-
+        
     }
 
     public void recogerCartaMazo(){

@@ -16,10 +16,12 @@ public class Equipo {
 
 
     public Equipo(){
-        
+        list = new ListFactory();
+        crearZonas();
     }
     
     public void crearZonas(){
+        System.out.println("Zonas creadas");
         limiteV = this.list.createList(listType.LIMITEV);
         puja = this.list.createList(listType.PUJA);
         distancia = this.list.createList(listType.DISTANCIA);

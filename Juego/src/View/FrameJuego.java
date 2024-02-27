@@ -60,7 +60,7 @@ public class FrameJuego extends javax.swing.JFrame {
         this.remove(btnRetroceso);
 
         RondasController rController = new RondasController(juego);
-        PanelRondas pRondas = new PanelRondas(rController);
+        PanelRondas pRondas = new PanelRondas(rController,juego);
         rController.setPRondas(pRondas);
 
         this.add(pRondas);
