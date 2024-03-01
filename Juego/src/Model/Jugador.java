@@ -5,9 +5,12 @@ import Model.Builder.Carta;
 
 public class Jugador {
     
-    private int numero;
+    private String numero;
     private ArrayList<Carta> mano;
 
+    public Jugador(String numero){
+        this.numero = numero;
+    }
     public void jugada(Equipo equipo){
         
     }
@@ -31,5 +34,8 @@ public class Jugador {
     public void setMano(ArrayList<Carta> mano){
         this.mano = mano;
 
+    }
+    public String getNombre(){
+        return numero;
     }
 }

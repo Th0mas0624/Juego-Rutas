@@ -12,10 +12,12 @@ public class Equipo {
     private int millasRecorridas=0;
     private int turno = 0;
     private Zona seguridad, puja, distancia, limiteV;
+    private String numeroEquipo;
     ListFactory list;
 
 
-    public Equipo(){
+    public Equipo(String numeroEquipo){
+        this.numeroEquipo = numeroEquipo;
         list = new ListFactory();
         crearZonas();
     }
@@ -61,11 +63,12 @@ public class Equipo {
     }
     
     public void agregarJugadores(int numJugadores,String modoJuego){
+        
         if (modoJuego == "Equipos") {
-            this.jugadores.add(new Jugador());
-            this.jugadores.add(new Jugador());
+            this.jugadores.add(new Jugador(numeroEquipo + "J1"));
+            this.jugadores.add(new Jugador(numeroEquipo +"J2"));
         }else{
-            this.jugadores.add(new Jugador());
+            this.jugadores.add(new Jugador(numeroEquipo +"J1"));
         }
     }
     

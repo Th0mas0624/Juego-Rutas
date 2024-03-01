@@ -10,7 +10,7 @@ public class Juego {
     private ArrayList<Equipo> equipos = new ArrayList<>();
     private MazoJuego mazoJuego = new MazoJuego();
     public Jugador jugadorActual;
-
+    private int numeroEquipo=0;
     //Funcion encargada de crear las cartas (para primera jugada) o de Recolartarlas en cada inicio de ronda
     public void iniciarCartas(boolean InicioJuego){ //InicioJuego:
         if (InicioJuego) {
@@ -27,13 +27,15 @@ public class Juego {
     public void iniciarJuego(int numJugadores,String modoJuego){
         if (modoJuego == "Equipos"){
             for (int i = 0; i < numJugadores/2; i++) {
-                equipos.add(new Equipo());
+                numeroEquipo += 1;
+                equipos.add(new Equipo("E"+Integer.toString(numeroEquipo)));
                 equipos.get(i).agregarJugadores(numJugadores,"Equipos");
             }
             System.out.println("Juego Iniciado en modo equipos"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
         }else if(modoJuego == "Individual"){
             for (int i = 0; i < numJugadores; i++) {
-                equipos.add(new Equipo());
+                numeroEquipo += 1;
+                equipos.add(new Equipo("E"+Integer.toString(numeroEquipo)));
                 equipos.get(i).agregarJugadores(numJugadores,"Individual");
             }
             System.out.println("Juego Iniciado en modo solitario"+equipos.size()+"  "+equipos.get(0).getJugadores().size());

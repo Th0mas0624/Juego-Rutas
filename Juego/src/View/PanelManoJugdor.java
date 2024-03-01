@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import Controller.RondasController;
@@ -21,6 +22,7 @@ public class PanelManoJugdor extends JPanel{
 
     public PanelManoJugdor(Juego juego, RondasController rController){
         
+        
         for (int i = 0; i < 6; i++) {
             botonesDeCarta.add(new JButton());
             this.add(botonesDeCarta.get(i));
@@ -35,8 +37,10 @@ public class PanelManoJugdor extends JPanel{
     }
 
     public void initComponent(){
-        this.setLayout(new GridLayout(1, 6));
+        this.setLayout(new GridLayout(1, 7));
      
+        JLabel nombreJugador = new JLabel(juego.jugadorActual.getNombre());
+        this.add(nombreJugador);
         for (JButton jButton : botonesDeCarta) {
             jButton.addActionListener(rController);
             this.add(jButton);
