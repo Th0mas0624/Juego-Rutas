@@ -10,7 +10,7 @@ import Model.Jugador;
 public class MazoJuego {
     private ArrayList<Carta> cartasDisponibles;
     private ArrayList<Carta> cartasDescartadas = new ArrayList<>();
-
+    
     public void revolverCartas(){
         Collections.shuffle(cartasDisponibles);
     }

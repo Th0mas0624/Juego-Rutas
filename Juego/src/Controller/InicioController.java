@@ -52,11 +52,13 @@ public class InicioController implements ActionListener{
             panelInicio.revalidate();
             panelInicio.repaint();
         }else if(button.getText().equals("2 Jugadores") || button.getText().equals("3 Jugadores")){
-            juego.iniciarJuego(Integer.parseInt(button.getName()), "Individual");            
+            juego.iniciarJuego(Integer.parseInt(button.getName()), "Individual");      
+            juego.jugarRonda();      
             panelInicio.getFrame().panelRondas();
                       
         }else if(button.getText().equals("2 Equipos") || button.getText().equals("3 Equipos")){
             juego.iniciarJuego(Integer.parseInt(button.getName()), "Equipos");
+            juego.jugarRonda();
             panelInicio.getFrame().panelRondas();
         }
         

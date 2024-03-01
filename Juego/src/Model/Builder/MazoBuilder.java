@@ -7,7 +7,7 @@ public class MazoBuilder {
     private ArrayList<Carta> mazo = new ArrayList<>();
 
     public MazoBuilder addAtaque(){
-        String[] funciones = {"Gasolina", "Pinchazo", "Accidente", "Velocidad", "Stop"};
+        String[] funciones = {"Gasolina", "Pinchazo", "Accidente", "Velocidad", "Siga"};
         int[] cantidades = {3, 3, 3, 4, 5};
 
         for (int i = 0; i < funciones.length; i++) {
@@ -15,7 +15,7 @@ public class MazoBuilder {
                 Carta carta = new Ataque();
                 carta.setFuncion(funciones[i]);
                 mazo.add(carta);
-                System.out.println(carta.getClass().getName()+"       "+carta.getfuncion());
+                //System.out.println(carta.getClass().getName()+"       "+carta.getfuncion());
             }
         }
         return this;
@@ -56,7 +56,7 @@ public class MazoBuilder {
 
         for (int i = 0; i < funciones.length; i++) {
             for (int j = 0; j < cantidades[i]; j++) {
-                Carta carta = new Defensa();
+                Carta carta = new Distancia();
                 carta.setFuncion(funciones[i]);
                 mazo.add(carta);
             }

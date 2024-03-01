@@ -3,14 +3,12 @@ package View;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.util.ArrayList;
 
-import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import Controller.RondasController;
 import Model.Juego;
-import Model.Jugador;
+
 
 
 public class PanelRondas extends JPanel{
