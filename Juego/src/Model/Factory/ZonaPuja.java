@@ -12,19 +12,19 @@ public class ZonaPuja implements Zona{
     public boolean add(Carta carta) {
         
         if (puja.size() > 0) {   
-            if (puja.get(-1).getClass().getName() == "Ataque") {
-                if(carta.getClass().getName() == "Defensa"){
+            if (puja.get(-1).getClass().getName() == "Model.Builder.Ataque") {
+                if(carta.getClass().getName() == "Model.Builder.Defensa"){
                     puja.add(carta);
                     return true;
                 }
-            }else if (puja.get(-1).getClass().getName() == "Defensa") {
-                if(carta.getClass().getName() == "Ataque"){
+            }else if (puja.get(-1).getClass().getName() == "Model.Builder.Defensa") {
+                if(carta.getClass().getName() == "Model.Builder.Ataque"){
                     puja.add(carta);
                     return true;
                 }
             }
         }else{
-            if (carta.getClass().getName() == "Ataque") {
+            if (carta.getClass().getName() == "Model.Builder.Ataque") {
                 puja.add(carta);
                 return true;
                 

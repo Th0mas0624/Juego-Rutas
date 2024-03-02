@@ -1,6 +1,7 @@
 package View;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
@@ -21,26 +22,29 @@ public class PanelManoJugdor extends JPanel{
     RondasController rController;
 
     public PanelManoJugdor(Juego juego, RondasController rController){
+
+        this.juego = juego;
+        this.rController = rController;
+        initComponent();
+
         
+        repintarCartas();
+    }
+
+    public void initComponent(){
+
+        this.setPreferredSize(new Dimension(500,300));
+        this.setBackground(new Color(255,255,255));
+        this.setLayout(new GridLayout(1, 7));
         
         for (int i = 0; i < 6; i++) {
             botonesDeCarta.add(new JButton());
             this.add(botonesDeCarta.get(i));
         }
 
-        this.juego = juego;
-        this.rController = rController;
-        initComponent();
-
-        //Esto tampoco va aqui, fue para probar
-        repintarCartas();
-    }
-
-    public void initComponent(){
-        this.setLayout(new GridLayout(1, 7));
-     
         JLabel nombreJugador = new JLabel(juego.jugadorActual.getNombre());
         this.add(nombreJugador);
+
         for (JButton jButton : botonesDeCarta) {
             jButton.addActionListener(rController);
             this.add(jButton);
@@ -60,7 +64,7 @@ public class PanelManoJugdor extends JPanel{
 
             String llave = jButton.getName() + jButton.getText();
             iconCarta = cartaView.getIcon(llave);
-            System.out.println(llave);
+            //System.out.println(llave);
             
             jButton.setForeground(new Color(0, 0, 0, 0));
             jButton.setIcon(iconCarta);    

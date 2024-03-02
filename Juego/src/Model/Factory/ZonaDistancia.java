@@ -26,13 +26,13 @@ public class ZonaDistancia implements Zona{
             }
         }
 
-        if (carta.getClass().getName() == "Distancia") {
+        if (carta.getClass().getName() == "Model.Builder.Distancia") {
             if (tieneSeguridad) {
                 distancia.add(carta);
                 return true;
             }else{
                 if (limiteV.getZona().size() > 0) {           
-                    if (limiteV.getZona().get(-1).getClass().getName() == "Ataque") {
+                    if (limiteV.getZona().get(-1).getClass().getName() == "Model.Builder.Ataque") {
                         if (distanciaCarta > 50) {
                             return false;
                         }else{

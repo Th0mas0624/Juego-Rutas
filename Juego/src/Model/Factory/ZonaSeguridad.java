@@ -10,7 +10,7 @@ public class ZonaSeguridad implements Zona{
     @Override
     public boolean add(Carta carta) {
         
-        if (carta.getClass().getName() == "Seguridad") {
+        if (carta.getClass().getName() == "Model.Builder.Seguridad") {
             seguridad.add(carta);
         }
         return false;

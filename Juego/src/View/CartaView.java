@@ -18,6 +18,7 @@ public class CartaView extends JLabel{
     "combustible","fin velocidad maxima","rueda de auxilio","taller","siga",
     "combustible extra","a prueba de pinchasos","as del volante","prioridad de paso",
     "200","100","75","50","25"};
+
     public static CartaView getInstance(){
         if (instance == null) {
             instance = new CartaView();
@@ -39,6 +40,7 @@ public class CartaView extends JLabel{
         }
     }
 
+    //La funcion recibe como atributo el nombre de la clase carta y su funcion para armar la llave
     public ImageIcon getIcon(String key){
         return imagenes.get(key);
     }

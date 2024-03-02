@@ -16,7 +16,8 @@ public class PanelRondas extends JPanel{
     RondasController rController;
     Juego juego;
     PanelManoJugdor panelMano; 
-    JPanel  panelMazo, equipo1, equipo2;
+    PanelZonasEquipo equipo1,equipo2;
+    JPanel  panelMazo;
     
     public PanelRondas(RondasController rController, Juego juego){
         this.juego = juego;
@@ -31,12 +32,12 @@ public class PanelRondas extends JPanel{
         
     }
 
+    // Funcion encargada de crear todos los paneles del juego
     public void crearPanelesDelJuego(){
         //Panel para mostrar la mano del jugador actual
-        panelMano = new PanelManoJugdor(juego, rController);
-        panelMano.setPreferredSize(new Dimension(500,300));
-        panelMano.setBackground(new Color(120,120,120));
+        panelMano = new PanelManoJugdor(juego, rController); 
         this.add(panelMano,BorderLayout.SOUTH);
+
         //Panel para mostrar el mazo del juego
         panelMazo = new JPanel();
         panelMazo.setBackground(new Color(255,120,120));
@@ -45,14 +46,15 @@ public class PanelRondas extends JPanel{
         crearPanelesEquipo();
     }
 
+    // Funcion encargada de crear los paneles de equipo
     public void crearPanelesEquipo(){
         if (juego.getEquipos().size() == 2) {
-            equipo1 = new JPanel();
-            equipo2 = new JPanel();
-            equipo1.setBackground(new Color(255,0,0));
+            equipo1 = new PanelZonasEquipo(juego.getEquipos().get(0));
+            equipo2 = new PanelZonasEquipo(juego.getEquipos().get(1));
+            /*equipo1.setBackground(new Color(255,0,0));
             equipo1.setPreferredSize(new Dimension(600,300));
             equipo2.setBackground(new Color(0,255,0));
-            equipo2.setPreferredSize(new Dimension(600,300));
+            equipo2.setPreferredSize(new Dimension(600,300));*/
             
             this.add(equipo1,BorderLayout.EAST);
             this.add(equipo2,BorderLayout.WEST);
