@@ -2,7 +2,6 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 
 import javax.swing.JPanel;
 
@@ -15,8 +14,8 @@ public class PanelRondas extends JPanel{
     
     RondasController rController;
     Juego juego;
-    PanelManoJugdor panelMano; 
-    PanelZonasEquipo equipo1,equipo2;
+    public PanelManoJugdor panelMano; 
+    public PanelZonasEquipo zonasEquipo1,zonasEequipo2;
     JPanel  panelMazo;
     
     public PanelRondas(RondasController rController, Juego juego){
@@ -49,15 +48,11 @@ public class PanelRondas extends JPanel{
     // Funcion encargada de crear los paneles de equipo
     public void crearPanelesEquipo(){
         if (juego.getEquipos().size() == 2) {
-            equipo1 = new PanelZonasEquipo(juego.getEquipos().get(0));
-            equipo2 = new PanelZonasEquipo(juego.getEquipos().get(1));
-            /*equipo1.setBackground(new Color(255,0,0));
-            equipo1.setPreferredSize(new Dimension(600,300));
-            equipo2.setBackground(new Color(0,255,0));
-            equipo2.setPreferredSize(new Dimension(600,300));*/
+            zonasEquipo1 = new PanelZonasEquipo(juego.getEquipos().get(0));
+            zonasEequipo2 = new PanelZonasEquipo(juego.getEquipos().get(1));
             
-            this.add(equipo1,BorderLayout.EAST);
-            this.add(equipo2,BorderLayout.WEST);
+            this.add(zonasEquipo1,BorderLayout.EAST);
+            this.add(zonasEequipo2,BorderLayout.WEST);
         }/*else{
             panelesEquipos.add(new JPanel());
             JPanel panel1 = new JPanel();

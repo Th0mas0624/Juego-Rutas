@@ -22,30 +22,42 @@ public class ZonaDistancia implements Zona{
 
         for (Carta carta2 : seguridad.getZona()) {
             if (carta2.getfuncion() == "Siga") {
+                System.out.println("Tiene prioridad de paso");
                 tieneSeguridad = true;
             }
         }
 
-        if (carta.getClass().getName() == "Model.Builder.Distancia") {
+        if (carta.getClass().getName().equals("Model.Builder.Distancia")) {
+            System.out.println("Tamaño zona de puja: "+this.puja.getZona().size());
+            System.out.println("Tamaño zona de velocidad"+this.limiteV.getZona().size());
             if (tieneSeguridad) {
                 distancia.add(carta);
                 return true;
             }else{
-                if (limiteV.getZona().size() > 0) {           
-                    if (limiteV.getZona().get(-1).getClass().getName() == "Model.Builder.Ataque") {
-                        if (distanciaCarta > 50) {
-                            return false;
+                if (!puja.getZona().isEmpty()) {
+                    // Primero compruebo si hay una carta de siga en la zona de puja
+                    if (puja.getZona().get(puja.getZona().size() -1).getClass().getName().equals("Model.Builder.Defensa")) {
+                        if (puja.getZona().get(puja.getZona().size() -1).getfuncion().equals("Siga")) {
+                            // Luego compruebo que cartas hay en la zona de limite de velocidad
+                            if (!limiteV.getZona().isEmpty()) {           
+                                if (limiteV.getZona().get(limiteV.getZona().size() -1).getClass().getName().equals("Model.Builder.Ataque")) {
+                                    if (distanciaCarta > 50) {
+                                        return false;
+                                    }else{
+                                        distancia.add(carta);
+                                        return true;
+                                    }
+                                }else{
+                                    distancia.add(carta);
+                                    return true;
+                                }
+                            }
                         }else{
-                            distancia.add(carta);
-                            return true;
+                            return false;
                         }
-                    }else{
-                        distancia.add(carta);
-                        return true;
                     }
                 }else{
-                    distancia.add(carta);
-                    return true;
+                    return false;
                 }
             }
         }

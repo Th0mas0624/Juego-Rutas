@@ -37,7 +37,7 @@ public class MazoBuilder {
 
     public MazoBuilder addSeguridad(){
         String[] funciones = {"Gasolina", "Pinchazo", "Accidente", "Siga"};
-        int[] cantidades = {3, 3, 3, 4, 5};
+        int[] cantidades = {1, 1, 1, 1};
 
         for (int i = 0; i < funciones.length; i++) {
             for (int j = 0; j < cantidades[i]; j++) {

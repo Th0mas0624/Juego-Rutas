@@ -3,6 +3,8 @@ package Controller;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
+
 import Model.Juego;
 import View.PanelRondas;
 
@@ -26,7 +28,16 @@ public class RondasController implements ActionListener{
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+        
+        JButton button = (JButton) e.getSource();
+
+        //System.out.println(button.getName()+button.getText());
+        if (pRondas.panelMano.mostrarOpcionesJuego() == 0) {  
+            juego.jugadorActual.jugada(juego.getEquipos(), button.getName()+button.getText());
+            juego.recogerCartaMazo();
+        }
+        pRondas.panelMano.repintarCartas();
+        //pRondas.zonasEquipo1.repintarZonas();
+        //pRondas.zonasEequipo2.repintarZonas();
     }
 }

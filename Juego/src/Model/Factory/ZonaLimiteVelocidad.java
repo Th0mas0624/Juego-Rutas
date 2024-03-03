@@ -12,13 +12,13 @@ public class ZonaLimiteVelocidad implements Zona{
         
         if (carta.getfuncion() == "Velocidad") {
             if (limite.size() > 0) {   
-                if (limite.get(-1).getClass().getName() == "Model.Builder.Ataque") {
-                    if(carta.getClass().getName() == "Model.Builder.Defensa"){
+                if (limite.get(limite.size() -1).getClass().getName().equals("Model.Builder.Ataque")) {
+                    if(carta.getClass().getName().equals("Model.Builder.Defensa")){
                         limite.add(carta);
                         return true;
                     }
-                }else if (limite.get(-1).getClass().getName() == "Model.Builder.Defensa") {
-                    if(carta.getClass().getName() == "Model.Builder.Ataque"){
+                }else if (limite.get(limite.size() -1).getClass().getName().equals("Model.Builder.Defensa")) {
+                    if(carta.getClass().getName().equals("Model.Builder.Ataque")){
                         limite.add(carta);
                         return true;
                     }

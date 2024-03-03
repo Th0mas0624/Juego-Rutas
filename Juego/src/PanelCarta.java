@@ -1,6 +1,7 @@
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class PanelCarta extends JPanel {
@@ -44,14 +45,10 @@ public class PanelCarta extends JPanel {
 	}
 	
 	public static void main(String[] args) {
-	    PanelCarta panel = new PanelCarta();
-
-	    JFrame frame = new JFrame();
-	    frame.add(panel);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        // Configura el JFrame en pantalla completa
-        frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	    frame.setVisible(true);
+	    Object[] opciones = {"Sí", "No", "Quizás"};
+		int eleccion = JOptionPane.showOptionDialog(null, "¿Te gusta programar?", "Una Pregunta Importante",
+        JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[2]);
+		
 	  }
 
 }

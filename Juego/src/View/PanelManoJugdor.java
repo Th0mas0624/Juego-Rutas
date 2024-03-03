@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 import Controller.RondasController;
@@ -16,6 +17,7 @@ import Model.Juego;
 public class PanelManoJugdor extends JPanel{
     
     ArrayList<JButton> botonesDeCarta = new ArrayList<>();
+    JLabel nombreJugador = new JLabel();
     ImageIcon iconCarta;
     CartaView cartaView = CartaView.getInstance();
     Juego juego;
@@ -42,7 +44,7 @@ public class PanelManoJugdor extends JPanel{
             this.add(botonesDeCarta.get(i));
         }
 
-        JLabel nombreJugador = new JLabel(juego.jugadorActual.getNombre());
+        
         this.add(nombreJugador);
 
         for (JButton jButton : botonesDeCarta) {
@@ -73,12 +75,16 @@ public class PanelManoJugdor extends JPanel{
             jButton.setOpaque(false);
         }
         
+        nombreJugador.setText(juego.jugadorActual.getNombre());
 
         this.revalidate();
         this.repaint();
     }
 
-    public void pintarCartasJugador(){
-
+    public int mostrarOpcionesJuego(){
+        Object[] opciones = {"Jugar", "Descartar"};
+        return JOptionPane.showOptionDialog(null, "¿Qué acción deseas realizar?", "Elige una opción",
+                JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, opciones, opciones[0]);  
+        
     }
 }

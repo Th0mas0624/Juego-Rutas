@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 import Model.Factory.ListFactory;
 import Model.Factory.Zona;
+import Model.Factory.ZonaDistancia;
 import Model.Factory.ListFactory.listType;
 
 public class Equipo {
@@ -11,7 +12,8 @@ public class Equipo {
     private int puntaje;
     private int millasRecorridas=0;
     private int turno = 0;
-    private Zona seguridad, puja, distancia, limiteV;
+    private Zona seguridad, puja,  limiteV;
+    private ZonaDistancia distancia;
     private String numeroEquipo;
     ListFactory list;
 
@@ -24,24 +26,33 @@ public class Equipo {
     
     public void crearZonas(){
         System.out.println("Zonas creadas");
-        limiteV = this.list.createList(listType.LIMITEV);
+        limiteV =  this.list.createList(listType.LIMITEV);
         puja = this.list.createList(listType.PUJA);
-        distancia = this.list.createList(listType.DISTANCIA);
         seguridad = this.list.createList(listType.SEGURIDAD);
+        distancia = (ZonaDistancia) this.list.createList(listType.DISTANCIA);
+
+        distancia.setLimiteV(limiteV);
+        distancia.setPuja(puja);
+        distancia.setSeguridad(seguridad);
     }
 
     //Verifica turno de jugador
     public Jugador turnoJugador(){
         if (jugadores.size() > 1) {
             if(turno % 2 == 0){
-                jugadores.get(0).jugada(this);
+                
+                //System.out.println("Jugador 1");
+                turno +=1;
                 return jugadores.get(0);
             }else{
-                jugadores.get(1).jugada(this);
+                
+                //System.out.println("Jugador 2");
+                turno +=1;
                 return jugadores.get(1);
             }
         }else{
-            jugadores.get(0).jugada(this);
+            
+            //System.out.println("Jugador 3");
             return jugadores.get(0);
         }
     }

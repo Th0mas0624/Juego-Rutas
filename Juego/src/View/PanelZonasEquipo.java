@@ -3,7 +3,6 @@ package View;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
-import java.util.ArrayList;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,9 +19,6 @@ public class PanelZonasEquipo extends JPanel{
     Equipo equipo;
     JLabel zonaSeguridad, zonaDistancia,zonaLimiteV,zonaPuja;
     CartaView cartaView = CartaView.getInstance();
-
-    //Array auxiliar para replicar uso en la carta de cada Zona
-    ArrayList<Carta> cartasZona = new ArrayList<>();
 
     public PanelZonasEquipo(Equipo equipo){
         this.equipo = equipo;
@@ -48,13 +44,11 @@ public class PanelZonasEquipo extends JPanel{
 
     public void repintarZonas(){
 
-        cartasZona.clear();
-
         try {
-            Carta cartaDistancia = equipo.getDistanciaZona().getZona().get(-1);
-            Carta cartaSeguridad = equipo.getSeguridadZona().getZona().get(-1);
-            Carta cartaLimiteV = equipo.getlimiteVZona().getZona().get(-1);
-            Carta cartaPuja = equipo.getPujaZona().getZona().get(-1);
+            Carta cartaDistancia = equipo.getDistanciaZona().getZona().get(equipo.getDistanciaZona().getZona().size() -1);
+            Carta cartaSeguridad = equipo.getSeguridadZona().getZona().get(equipo.getSeguridadZona().getZona().size() -1);
+            Carta cartaLimiteV = equipo.getlimiteVZona().getZona().get(equipo.getlimiteVZona().getZona().size() -1);
+            Carta cartaPuja = equipo.getPujaZona().getZona().get(equipo.getPujaZona().getZona().size() -1);
 
             zonaSeguridad.setIcon(cartaView.getIcon(cartaSeguridad.getClass().getName()+cartaSeguridad.getfuncion()));
             zonaDistancia.setIcon(cartaView.getIcon(cartaDistancia.getClass().getName()+cartaDistancia.getfuncion()));
