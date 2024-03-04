@@ -12,11 +12,12 @@ import Model.Juego;
 
 public class PanelRondas extends JPanel{
     
+
     RondasController rController;
     Juego juego;
     public PanelManoJugdor panelMano; 
     public PanelZonasEquipo zonasEquipo1,zonasEequipo2;
-    JPanel  panelMazo;
+    public PanelMazo  panelMazo;
     
     public PanelRondas(RondasController rController, Juego juego){
         this.juego = juego;
@@ -38,10 +39,11 @@ public class PanelRondas extends JPanel{
         this.add(panelMano,BorderLayout.SOUTH);
 
         //Panel para mostrar el mazo del juego
-        panelMazo = new JPanel();
-        panelMazo.setBackground(new Color(255,120,120));
+        panelMazo = new PanelMazo(juego.getMazoJuego());
+        
         
         this.add(panelMazo,BorderLayout.CENTER);
+
         crearPanelesEquipo();
     }
 

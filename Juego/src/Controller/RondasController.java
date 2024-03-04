@@ -32,12 +32,23 @@ public class RondasController implements ActionListener{
         JButton button = (JButton) e.getSource();
 
         //System.out.println(button.getName()+button.getText());
-        if (pRondas.panelMano.mostrarOpcionesJuego() == 0) {  
-            juego.jugadorActual.jugada(juego.getEquipos(), button.getName()+button.getText());
+        int eleccion = pRondas.panelMano.mostrarOpcionesJuego();
+        System.out.println(eleccion);
+        if (eleccion== 0) {  
+            boolean auxiliar =false;
+            auxiliar = juego.jugadorActual.jugada(juego.getEquipos(), button.getName()+button.getText());
+            if (auxiliar) {
+                juego.recogerCartaMazo();
+                juego.jugarRonda();
+            }
+        }else if (eleccion == 1) {
+            juego.jugadorActual.descartarCarta(juego.getMazoJuego().getCartasDescartadas(), button.getName()+button.getText());
             juego.recogerCartaMazo();
+            juego.jugarRonda();
         }
         pRondas.panelMano.repintarCartas();
         pRondas.zonasEquipo1.repintarZonas();
         pRondas.zonasEequipo2.repintarZonas();
+        pRondas.panelMazo.repintarCartas();
     }
 }

@@ -16,10 +16,11 @@ public class Jugador {
     }
 
     //
-    public void jugada(ArrayList<Equipo> equipos, String nombreCarta){
+    public boolean jugada(ArrayList<Equipo> equipos, String nombreCarta){
         
         Equipo miEquipo = null;
         Equipo equipoEnemigo = null;
+
         for (Equipo equipo : equipos) {
             if (equipo.getJugadores().contains(this)) {
                 miEquipo = equipo;
@@ -63,11 +64,13 @@ public class Jugador {
                     break;
                 }
             }
+            
             //mano.remove(cartaSeleccionada);
         }else{
             JOptionPane.showMessageDialog(null, "Esta Carta no se puede jugar");
         }
 
+        return auxiliar;
     }
 
     public Carta buscarCartaSeleccionada(String nombreCarta){
@@ -80,27 +83,23 @@ public class Jugador {
                 return mano.get(i);
             }
         }
-        /*for (Carta carta : mano) {
-            if (nombreCarta == (carta.getClass().getName() + carta.getfuncion())) {
-                return mano.remove();
-            }
-        }*/
         return null;
     }
 
+    // Recibe el mazo de cartas disponibles en el juego y remueve una carta
     public void recogerCartaMazo(ArrayList<Carta> mazoJuego){
         if (mano.size() < 6) {
-            mano.add(mazoJuego.remove(0));
+            mano.add(mazoJuego.remove(mazoJuego.size()-1));
         }
     }
 
-    public void descartarCarta(){
-
-    }
-
-    //Solo cambia el estado del juego, por lo tanto se puede cambiar en la funcion jugada()
-    public void pasarTurno(){
-
+    public void descartarCarta(ArrayList<Carta> mazoDescarte, String nombre){
+        Carta cartaSeleccionada = buscarCartaSeleccionada(nombre);
+        for (int i=0; i<mano.size(); i++) {
+            if (mano.get(i) == cartaSeleccionada) {
+                mazoDescarte.add(mano.remove(i));
+            }
+        }
     }
 
     public ArrayList<Carta> getMano(){

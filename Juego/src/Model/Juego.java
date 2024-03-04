@@ -124,5 +124,9 @@ public class Juego {
     public ArrayList<Equipo> getEquipos(){
         return equipos;
     }
+
+    public MazoJuego getMazoJuego(){
+        return mazoJuego;
+    }
     
 }

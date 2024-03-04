@@ -50,4 +50,8 @@ public class MazoJuego {
     public ArrayList<Carta> getCartasDisponibles(){
         return cartasDisponibles;
     }
+
+    public ArrayList<Carta> getCartasDescartadas(){
+        return cartasDescartadas;
+    }
 }

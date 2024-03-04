@@ -32,8 +32,22 @@ public class ZonaDistancia implements Zona{
             //System.out.println("Tamaño zona de puja: "+this.puja.size());
             //System.out.println("Tamaño zona de velocidad"+this.limiteV.size());
             if (tieneSeguridad) {
-                distancia.add(carta);
-                return true;
+                if (!puja.isEmpty()) {
+                    if (puja.get(puja.size()-1).getClass().getName() == "Model.Builder.Ataque"  ) {
+                        if (puja.get(puja.size()-1).getfuncion() != "Siga") {
+                            return false;
+                        }else{
+                            distancia.add(carta);
+                            return true;
+                        }
+                    }else{
+                        distancia.add(carta);
+                        return true;
+                    }
+                }else{
+                    distancia.add(carta);
+                    return true;
+                }
             }else{
                 if (!puja.isEmpty()) {
                     // Primero compruebo si hay una carta de siga en la zona de puja
