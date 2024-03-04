@@ -42,23 +42,42 @@ public class PanelZonasEquipo extends JPanel{
         repintarZonas();
     }
 
-    public void repintarZonas(){
-
+    public void repintarZonas() {
+        Carta cartaDistancia = null;
+        Carta cartaSeguridad = null;
+        Carta cartaLimiteV = null;
+        Carta cartaPuja = null;
+    
         try {
-            Carta cartaDistancia = equipo.getDistanciaZona().getZona().get(equipo.getDistanciaZona().getZona().size() -1);
-            Carta cartaSeguridad = equipo.getSeguridadZona().getZona().get(equipo.getSeguridadZona().getZona().size() -1);
-            Carta cartaLimiteV = equipo.getlimiteVZona().getZona().get(equipo.getlimiteVZona().getZona().size() -1);
-            Carta cartaPuja = equipo.getPujaZona().getZona().get(equipo.getPujaZona().getZona().size() -1);
-
-            zonaSeguridad.setIcon(cartaView.getIcon(cartaSeguridad.getClass().getName()+cartaSeguridad.getfuncion()));
+            cartaDistancia = equipo.getDistanciaZona().getZona().get(equipo.getDistanciaZona().getZona().size() -1);
             zonaDistancia.setIcon(cartaView.getIcon(cartaDistancia.getClass().getName()+cartaDistancia.getfuncion()));
-            zonaLimiteV.setIcon(cartaView.getIcon(cartaLimiteV.getClass().getName()+cartaLimiteV.getfuncion()));
-            zonaPuja.setIcon(cartaView.getIcon(cartaPuja.getClass().getName()+cartaPuja.getfuncion()));
-            this.revalidate();
-            this.repaint();
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            //System.out.println("Error al procesar la zona de distancia: " + e.getMessage());
         }
-        
+    
+        try {
+            cartaSeguridad = equipo.getSeguridadZona().getZona().get(equipo.getSeguridadZona().getZona().size() -1);
+            zonaSeguridad.setIcon(cartaView.getIcon(cartaSeguridad.getClass().getName()+cartaSeguridad.getfuncion()));
+        } catch (Exception e) {
+            //System.out.println("Error al procesar la zona de seguridad: " + e.getMessage());
+        }
+    
+        try {
+            cartaLimiteV = equipo.getlimiteVZona().getZona().get(equipo.getlimiteVZona().getZona().size() -1);
+            zonaLimiteV.setIcon(cartaView.getIcon(cartaLimiteV.getClass().getName()+cartaLimiteV.getfuncion()));
+        } catch (Exception e) {
+            //System.out.println("Error al procesar la zona de límite de velocidad: " + e.getMessage());
+        }
+    
+        try {
+            cartaPuja = equipo.getPujaZona().getZona().get(equipo.getPujaZona().getZona().size() -1);
+            zonaPuja.setIcon(cartaView.getIcon(cartaPuja.getClass().getName()+cartaPuja.getfuncion()));
+        } catch (Exception e) {
+            //System.out.println("Error al procesar la zona de puja: " + e.getMessage());
+        }
+    
+        this.revalidate();
+        this.repaint();
     }
+    
 }

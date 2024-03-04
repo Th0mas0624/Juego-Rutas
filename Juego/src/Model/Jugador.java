@@ -47,7 +47,7 @@ public class Jugador {
             }
         }else if (auxilarTipoCarta == "Model.Builder.Defensa") {
             if (cartaSeleccionada.getfuncion() != "Velocidad") {
-                auxiliar = equipoEnemigo.getPujaZona().add(cartaSeleccionada);
+                auxiliar = miEquipo.getPujaZona().add(cartaSeleccionada);
             }
         }else if (auxilarTipoCarta == "Model.Builder.Distancia"){
             auxiliar = miEquipo.getDistanciaZona().add(cartaSeleccionada);

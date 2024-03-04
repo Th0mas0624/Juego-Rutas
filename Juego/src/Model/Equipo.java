@@ -25,15 +25,16 @@ public class Equipo {
     }
     
     public void crearZonas(){
-        System.out.println("Zonas creadas");
+        //System.out.println("Zonas creadas");
         limiteV =  this.list.createList(listType.LIMITEV);
         puja = this.list.createList(listType.PUJA);
         seguridad = this.list.createList(listType.SEGURIDAD);
         distancia = (ZonaDistancia) this.list.createList(listType.DISTANCIA);
 
-        distancia.setLimiteV(limiteV);
-        distancia.setPuja(puja);
-        distancia.setSeguridad(seguridad);
+        //System.out.println("Limite Crear Zonas: "+System.identityHashCode(puja.getZona()));
+        distancia.setLimiteV(limiteV.getZona());
+        distancia.setPuja(puja.getZona());
+        distancia.setSeguridad(seguridad.getZona());
     }
 
     //Verifica turno de jugador

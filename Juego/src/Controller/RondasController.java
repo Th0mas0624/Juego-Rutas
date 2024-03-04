@@ -37,7 +37,7 @@ public class RondasController implements ActionListener{
             juego.recogerCartaMazo();
         }
         pRondas.panelMano.repintarCartas();
-        //pRondas.zonasEquipo1.repintarZonas();
-        //pRondas.zonasEequipo2.repintarZonas();
+        pRondas.zonasEquipo1.repintarZonas();
+        pRondas.zonasEequipo2.repintarZonas();
     }
 }
