@@ -30,7 +30,6 @@ public class RondasController implements ActionListener{
     public void actionPerformed(ActionEvent e) {
         
         JButton button = (JButton) e.getSource();
-
         //System.out.println(button.getName()+button.getText());
         int eleccion = pRondas.panelMano.mostrarOpcionesJuego();
         System.out.println(eleccion);
@@ -46,9 +45,12 @@ public class RondasController implements ActionListener{
             juego.recogerCartaMazo();
             juego.jugarRonda();
         }
+        
+        pRondas.panelPuntaje.actualizar();
         pRondas.panelMano.repintarCartas();
         pRondas.zonasEquipo1.repintarZonas();
         pRondas.zonasEequipo2.repintarZonas();
         pRondas.panelMazo.repintarCartas();
+        
     }
 }

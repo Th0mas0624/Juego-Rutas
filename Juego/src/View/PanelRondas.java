@@ -1,7 +1,11 @@
 package View;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Toolkit;
 
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import Controller.RondasController;
@@ -17,7 +21,9 @@ public class PanelRondas extends JPanel{
     public PanelManoJugdor panelMano; 
     public PanelZonasEquipo zonasEquipo1,zonasEequipo2;
     public PanelMazo  panelMazo;
+    public PanelPuntajeYMilla panelPuntaje;
     
+
     public PanelRondas(RondasController rController, Juego juego){
         this.juego = juego;
         this.rController = rController;
@@ -33,25 +39,46 @@ public class PanelRondas extends JPanel{
 
     // Funcion encargada de crear todos los paneles del juego
     public void crearPanelesDelJuego(){
+
         //Panel para mostrar la mano del jugador actual
         panelMano = new PanelManoJugdor(juego, rController); 
         this.add(panelMano,BorderLayout.SOUTH);
 
         //Panel para mostrar el mazo del juego
-        panelMazo = new PanelMazo(juego.getMazoJuego());
-        
-        
+        panelMazo = new PanelMazo(juego.getMazoJuego());    
         this.add(panelMazo,BorderLayout.CENTER);
 
+        panelPuntaje = new PanelPuntajeYMilla(juego);
+        this.add(panelPuntaje, BorderLayout.NORTH);
         crearPanelesEquipo();
-    }
 
+        
+        
+    }
+    
     // Funcion encargada de crear los paneles de equipo
     public void crearPanelesEquipo(){
         if (juego.getEquipos().size() == 2) {
-            zonasEquipo1 = new PanelZonasEquipo(juego.getEquipos().get(0));
-            zonasEequipo2 = new PanelZonasEquipo(juego.getEquipos().get(1));
-            
+            //ImageIcon icon1 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(ruta));
+            //ImageIcon icon2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(ruta));
+            zonasEquipo1 = new PanelZonasEquipo(juego.getEquipos().get(0)){
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    ImageIcon fondo = new ImageIcon("Juego\\Pictures\\equipo 1.png"); // Asegúrate de poner la ruta correcta a tu imagen.
+                    g.drawImage(fondo.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+                }
+            };
+            zonasEquipo1.setBackground(Color.blue);
+            zonasEequipo2 = new PanelZonasEquipo(juego.getEquipos().get(1)){
+                @Override
+                protected void paintComponent(Graphics g) {
+                    super.paintComponent(g);
+                    ImageIcon fondo = new ImageIcon("Juego\\Pictures\\equipo 2.png"); // Asegúrate de poner la ruta correcta a tu imagen.
+                    g.drawImage(fondo.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
+                }
+            };
+            zonasEequipo2.setBackground(Color.red);
             this.add(zonasEquipo1,BorderLayout.EAST);
             this.add(zonasEequipo2,BorderLayout.WEST);
         }/*else{

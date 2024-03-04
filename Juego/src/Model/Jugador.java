@@ -40,7 +40,7 @@ public class Jugador {
 
         if ((auxilarTipoCarta+cartaSeleccionada.getfuncion()).equals("Model.Builder.AtaqueVelocidad") ) {
             auxiliar = equipoEnemigo.getlimiteVZona().add(cartaSeleccionada);
-        }else if ((auxilarTipoCarta+cartaSeleccionada.getfuncion()) == "Model.Builder.DefensaVelocidad") {
+        }else if ((auxilarTipoCarta+cartaSeleccionada.getfuncion()).equals("Model.Builder.DefensaVelocidad")) {
             auxiliar = miEquipo.getlimiteVZona().add(cartaSeleccionada);
         }else if (auxilarTipoCarta == "Model.Builder.Ataque") {
             if (cartaSeleccionada.getfuncion() != "Velocidad") {

@@ -1,9 +1,11 @@
 package Model;
 import java.util.ArrayList;
 
+import Model.Builder.Carta;
 import Model.Factory.ListFactory;
 import Model.Factory.Zona;
 import Model.Factory.ZonaDistancia;
+import Model.Factory.ZonaPuja;
 import Model.Factory.ListFactory.listType;
 
 public class Equipo {
@@ -12,7 +14,8 @@ public class Equipo {
     private int puntaje;
     private int millasRecorridas=0;
     private int turno = 0;
-    private Zona seguridad, puja,  limiteV;
+    private Zona  limiteV,seguridad;
+    private ZonaPuja puja;
     private ZonaDistancia distancia;
     private String numeroEquipo;
     ListFactory list;
@@ -27,10 +30,11 @@ public class Equipo {
     public void crearZonas(){
         //System.out.println("Zonas creadas");
         limiteV =  this.list.createList(listType.LIMITEV);
-        puja = this.list.createList(listType.PUJA);
         seguridad = this.list.createList(listType.SEGURIDAD);
+        puja = (ZonaPuja) this.list.createList(listType.PUJA);
         distancia = (ZonaDistancia) this.list.createList(listType.DISTANCIA);
 
+        puja.setSeguridad(seguridad.getZona());
         //System.out.println("Limite Crear Zonas: "+System.identityHashCode(puja.getZona()));
         distancia.setLimiteV(limiteV.getZona());
         distancia.setPuja(puja.getZona());
@@ -89,6 +93,21 @@ public class Equipo {
         if (recorridoC) {
             this.puntaje += 400;
         }
+        for (Carta carta : seguridad.getZona()) {
+            this.puntaje += 100;
+        }
+        if (seguridad.getZona().size() == 4) {
+            this.puntaje += 300;
+        }
+        for (int i=0; i<distancia.getZona().size(); i++) {
+            if (distancia.getZona().get(i).getfuncion() == "200") {
+                break;
+            }
+
+            if (i == distancia.getZona().size() -1) {
+                this.puntaje += 300;
+            }
+        }
         //if ()
 
     }
@@ -98,6 +117,10 @@ public class Equipo {
     }
     public int getMillasRecorridas(){
         return millasRecorridas;
+    }
+
+    public void setMillasRecorridas(int millasRecorridas){
+        this.millasRecorridas = 0;
     }
     public ArrayList<Jugador> getJugadores(){
         return jugadores;
@@ -117,5 +140,8 @@ public class Equipo {
     }
     public Zona getlimiteVZona(){
         return limiteV;
+    }
+    public String getNumeroEquipo(){
+        return numeroEquipo;
     }
 }

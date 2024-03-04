@@ -1,6 +1,5 @@
 package View;
 
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 
@@ -32,7 +31,7 @@ public class PanelZonasEquipo extends JPanel{
     public void initComponent(){
         //this.setPreferredSize(new Dimension(500,300));
         //this.setBackground(new Color(255,255,255));
-        this.setBackground(new Color(255,0,0));
+        
         this.setPreferredSize(new Dimension(600,300));
         this.setLayout(new GridLayout(1, 4));
         this.add(zonaDistancia);
@@ -52,28 +51,28 @@ public class PanelZonasEquipo extends JPanel{
             cartaDistancia = equipo.getDistanciaZona().getZona().get(equipo.getDistanciaZona().getZona().size() -1);
             zonaDistancia.setIcon(cartaView.getIcon(cartaDistancia.getClass().getName()+cartaDistancia.getfuncion()));
         } catch (Exception e) {
-            //System.out.println("Error al procesar la zona de distancia: " + e.getMessage());
+            zonaDistancia.setIcon(null);
         }
     
         try {
             cartaSeguridad = equipo.getSeguridadZona().getZona().get(equipo.getSeguridadZona().getZona().size() -1);
             zonaSeguridad.setIcon(cartaView.getIcon(cartaSeguridad.getClass().getName()+cartaSeguridad.getfuncion()));
         } catch (Exception e) {
-            //System.out.println("Error al procesar la zona de seguridad: " + e.getMessage());
+            zonaSeguridad.setIcon(null);
         }
     
         try {
             cartaLimiteV = equipo.getlimiteVZona().getZona().get(equipo.getlimiteVZona().getZona().size() -1);
             zonaLimiteV.setIcon(cartaView.getIcon(cartaLimiteV.getClass().getName()+cartaLimiteV.getfuncion()));
         } catch (Exception e) {
-            //System.out.println("Error al procesar la zona de límite de velocidad: " + e.getMessage());
+            zonaLimiteV.setIcon(null);
         }
     
         try {
             cartaPuja = equipo.getPujaZona().getZona().get(equipo.getPujaZona().getZona().size() -1);
             zonaPuja.setIcon(cartaView.getIcon(cartaPuja.getClass().getName()+cartaPuja.getfuncion()));
         } catch (Exception e) {
-            //System.out.println("Error al procesar la zona de puja: " + e.getMessage());
+            zonaPuja.setIcon(null);
         }
     
         this.revalidate();

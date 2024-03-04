@@ -1,5 +1,6 @@
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridLayout;
 
@@ -21,11 +22,11 @@ public class PanelMazo extends JPanel{
         initComponent();
     }
 
-    public void initComponent(){
+    public void initComponent(){    
         this.setLayout(new GridLayout(2, 1));
         this.setBackground(new Color(255,120,120));
-        this.add(cartasDisponibles);
-        this.add(cartasDescartadas);
+        this.add(cartasDisponibles, BorderLayout.NORTH);
+        this.add(cartasDescartadas, BorderLayout.SOUTH);
 
         repintarCartas();
     }

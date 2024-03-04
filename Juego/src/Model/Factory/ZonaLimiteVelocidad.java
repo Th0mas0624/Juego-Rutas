@@ -11,7 +11,7 @@ public class ZonaLimiteVelocidad implements Zona{
     public boolean add(Carta carta) {
         
         if (carta.getfuncion() == "Velocidad") {
-            if (limite.size() > 0) {   
+            if (!limite.isEmpty()) {   
                 if (limite.get(limite.size() -1).getClass().getName().equals("Model.Builder.Ataque")) {
                     if(carta.getClass().getName().equals("Model.Builder.Defensa")){
                         limite.add(carta);

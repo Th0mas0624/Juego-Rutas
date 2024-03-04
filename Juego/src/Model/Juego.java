@@ -1,6 +1,7 @@
 package Model;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
 
 import Model.Builder.MazoJuego;
 
@@ -57,49 +58,33 @@ public class Juego {
                         //System.out.println("Tamaño Mazo: "+ mazoJuego.getCartasDisponibles().size());
                     }
                 }
-                System.out.println(jugador.getMano().size());
+                //System.out.println(jugador.getMano().size());
             }
         }
     }
 
-    //WARNING: ARREGLAR ESTO PARA SEGUIR JUGANDO RONDAS EN CADA PARTIDA
     public void jugarRonda(){ 
 
         if (!verificarVictoria()) {
             jugadorActual = equipos.get(turnoEquipo).turnoJugador();
-            equipos.get(turnoEquipo).sumarMillas();;
-            System.out.println(turnoEquipo);
+            equipos.get(turnoEquipo).sumarMillas();
+            //System.out.println("Tamaño del mazo al recolectar:  "+mazoJuego.getCartasDisponibles().size());
             turnoEquipo += 1;
-        }
-
-        for (Equipo equipo : equipos) {
-            if (equipo.getMillasRecorridas() >= 1000) {
-                equipo.sumarPuntos(true);
-            }/*else if (mazoJuego.getCartasDisponibles().size() == 0) {
-                equipo.sumarPun
-            }*/
+            for (Equipo equipo : equipos) {
+                if (equipo.getMillasRecorridas() >= 1000) {
+                    equipo.sumarPuntos(true);
+                    iniciarCartas(false);
+                    for (Equipo equipo1 : equipos) {
+                        equipo1.setMillasRecorridas(0);
+                    }
+                    JOptionPane.showMessageDialog(null,"Equipo ganador de la ronda: "+equipo.getNumeroEquipo());
+                }
+            }
         }
 
         if (turnoEquipo == equipos.size()) {
             turnoEquipo = 0;
         }
-
-        /*for (Equipo equipo : equipos) {        
-            if(equipo.getPuntaje() >= 5000){
-                TerminarPartida(equipo);
-            }
-            else{
-                jugadorActual = equipo.turnoJugador();
-                // logica encargada de ir sumando puntos cada vez que algun equipo complete las 1000 millas en cada partida
-                if (equipo.getMillasRecorridas() >= 1000) {
-                    equipo.sumarPuntos(true);
-                }
-                // Logica encargada de sumar puntos si la partida se queda sin cartas y no hay mas movimientos
-                else if(mazoJuego.getCartasDisponibles().size() == 0){
-                    equipo.sumarPuntos(false);
-                }
-            }
-        }/* */
     }
 
     public void recogerCartaMazo(){
@@ -116,9 +101,11 @@ public class Juego {
         return false;
     }
 
-    /*public void TerminarPartida(Equipo equipo){
+    //
+    /*public boolean TerminarPartida(Equipo equipo){
         //Implementar esto bien, la idea es detener el juego o dar la posibilidad de comenzar otro juego
-        System.out.println("El ganador es el equipo"+equipo);  
+        JOptionPane.showMessageDialog(null,"El equipo "+equipo.getNumeroEquipo()+" gano la partida FELICITACIONES");
+
     }*/
 
     public ArrayList<Equipo> getEquipos(){
