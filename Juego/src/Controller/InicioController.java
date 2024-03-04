@@ -5,6 +5,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 
 import Model.Juego;
 import View.PanelInicio;
@@ -51,15 +52,16 @@ public class InicioController implements ActionListener{
 
             panelInicio.revalidate();
             panelInicio.repaint();
-        }else if(button.getText().equals("2 Jugadores") || button.getText().equals("3 Jugadores")){
+        }else if(button.getText().equals("2 Jugadores")){
             juego.iniciarJuego(Integer.parseInt(button.getName()), "Individual");      
             juego.jugarRonda();      
-            panelInicio.getFrame().panelRondas();
-                      
-        }else if(button.getText().equals("2 Equipos") || button.getText().equals("3 Equipos")){
+            panelInicio.getFrame().panelRondas();             
+        }else if(button.getText().equals("2 Equipos") ){
             juego.iniciarJuego(Integer.parseInt(button.getName()), "Equipos");
             juego.jugarRonda();
             panelInicio.getFrame().panelRondas();
+        }else if ((button.getText().equals("3 Equipos"))|| (button.getText().equals("3 Jugadores"))) {
+            JOptionPane.showMessageDialog(null, "Esta opcion aun se esta trabajando");
         }
         
     }
