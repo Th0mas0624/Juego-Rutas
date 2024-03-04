@@ -67,7 +67,7 @@ public class Jugador {
             
             //mano.remove(cartaSeleccionada);
         }else{
-            JOptionPane.showMessageDialog(null, "Esta Carta no se puede jugar");
+            JOptionPane.showMessageDialog(null, "Esta Carta no se puede jugar \n Juega otra carta o descartala");
         }
 
         return auxiliar;
