@@ -15,7 +15,7 @@ import Controller.InicioController;
 
 public class PanelInicio extends javax.swing.JPanel {
 
-    private Image imagen = Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\Fondo inicio.jpg");
+    private Image imagen = Toolkit.getDefaultToolkit().getImage("Juego/Pictures/Fondo inicio.jpg");
     
     public FrameJuego frame;
     public ImageIcon iconoEscalado; //Atributo para configurar el icono de los botones
@@ -66,7 +66,7 @@ public class PanelInicio extends javax.swing.JPanel {
     }
 
     public void adquirirIconBoton(){
-        ImageIcon iconoOriginal = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Juego\\Pictures\\boton inicio.png"));
+        ImageIcon iconoOriginal = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Juego/Pictures/boton inicio.png"));
         Image imagen = iconoOriginal.getImage(); // Transforma el Icon en Image para poder escalarlo
         Image imagenEscalada = imagen.getScaledInstance(300, 50, Image.SCALE_SMOOTH); // Escala la imagen al tamaño del botón
         iconoEscalado = new ImageIcon(imagenEscalada); // Transforma de vuelta a ImageIcon para poder usarlo en el botón

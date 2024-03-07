@@ -32,7 +32,7 @@ public class PanelZonasEquipo extends JPanel{
         //this.setPreferredSize(new Dimension(500,300));
         //this.setBackground(new Color(255,255,255));
         
-        this.setPreferredSize(new Dimension(600,300));
+        this.setPreferredSize(new Dimension(800,300));
         this.setLayout(new GridLayout(1, 4));
         this.add(zonaDistancia);
         this.add(zonaLimiteV);

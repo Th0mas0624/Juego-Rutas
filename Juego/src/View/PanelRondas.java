@@ -64,7 +64,7 @@ public class PanelRondas extends JPanel{
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    ImageIcon fondo = new ImageIcon("Juego\\Pictures\\equipo 1.png"); // Asegúrate de poner la ruta correcta a tu imagen.
+                    ImageIcon fondo = new ImageIcon("Juego/Pictures/equipo 1.png"); // Asegúrate de poner la ruta correcta a tu imagen.
                     g.drawImage(fondo.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
                 }
             };
@@ -73,7 +73,7 @@ public class PanelRondas extends JPanel{
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    ImageIcon fondo = new ImageIcon("Juego\\Pictures\\equipo 2.png"); // Asegúrate de poner la ruta correcta a tu imagen.
+                    ImageIcon fondo = new ImageIcon("Juego/Pictures/equipo 2.png"); // Asegúrate de poner la ruta correcta a tu imagen.
                     g.drawImage(fondo.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
                 }
             };
