@@ -16,39 +16,23 @@ public class InicioController implements ActionListener{
     public Juego juego;
 
     public InicioController(Juego juego){
-        this.juego = juego;
-        
+        this.juego = juego;    
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
         // Identificar qué botón fue presionado y actuar en consecuencia
         JButton button = (JButton) e.getSource();
-        
-        panelInicio.removeAll();
-        if (button.getText().equals("Equipos")) {
-            // Lógica para el botón Equipos
-            JButton dosEquipos = new JButton("2 Equipos");
-            dosEquipos.setName("4"); 
-            JButton tresEquipos = new JButton("3 Equipos");
-            tresEquipos.setName("6");
 
-            panelInicio.configRestricciones(); //Se configuran nuevamente las restricciones de los botones
-            panelInicio.configBoton(tresEquipos); //Se configuran los nuevos botones
-            panelInicio.configBoton(dosEquipos);
+        panelInicio.removeAll();
+        if (button.getName().equals("Equipos")) {
+            // Lógica para el botón Equipos
+            panelInicio.NuevosBOtones(1);
 
             panelInicio.revalidate();
             panelInicio.repaint();
-        } else if (button.getText().equals("Individual")) {
-            // Lógica para el botón Solitario
-            JButton dosEquipos = new JButton("2 Jugadores");
-            dosEquipos.setName("2");
-            JButton tresEquipos = new JButton("3 Jugadores");
-            tresEquipos.setName("3");
-
-            panelInicio.configRestricciones(); //Se configuran nuevamente las restricciones de los botones
-            panelInicio.configBoton(tresEquipos); // Se configuran los nuevos botones
-            panelInicio.configBoton(dosEquipos);
+        } else if (button.getName().equals("Individual")) {
+            panelInicio.NuevosBOtones(2);
 
             panelInicio.revalidate();
             panelInicio.repaint();
@@ -60,7 +44,7 @@ public class InicioController implements ActionListener{
             juego.iniciarJuego(Integer.parseInt(button.getName()), "Equipos");
             juego.jugarRonda();
             panelInicio.getFrame().panelRondas();
-        }else if ((button.getText().equals("3 Equipos"))|| (button.getText().equals("3 Jugadores"))) {
+        }else if ((button.getName().equals("3 Equipos"))|| (button.getName().equals("3 Jugadores"))) {
             JOptionPane.showMessageDialog(null, "Esta opcion aun se esta trabajando");
         }
         

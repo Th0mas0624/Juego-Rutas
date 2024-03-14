@@ -25,7 +25,7 @@ public class PanelInicio extends javax.swing.JPanel {
     //Botones iniciales de juego
     private JButton equipos;
     private JButton solitario;
-
+    private JButton info;
     //public Juego juego;
     public PanelInicio(InicioController icController){
         this.iController = icController;
@@ -40,14 +40,19 @@ public class PanelInicio extends javax.swing.JPanel {
     }
 
     private void initComponents(){
-        equipos = new JButton("Equipos");
-        solitario = new JButton("Individual");
+        equipos = new JButton("Crear partida en modo equipos");
+        equipos.setName("Equipos");
+        solitario = new JButton("Crear partida en modo individual");
+        solitario.setName("Individual");
+        info = new JButton("Reglas del juego");
+        
         this.setLayout(new GridBagLayout()); // Establece GridBagLayout como el layout manager del panel
 
         adquirirIconBoton();
         configRestricciones();
         configBoton(equipos);
         configBoton(solitario);
+        configBoton(info);
     }
 
     public void configRestricciones(){
@@ -68,17 +73,17 @@ public class PanelInicio extends javax.swing.JPanel {
     public void adquirirIconBoton(){
         ImageIcon iconoOriginal = new ImageIcon(Toolkit.getDefaultToolkit().getImage("Juego/Pictures/boton inicio.png"));
         Image imagen = iconoOriginal.getImage(); // Transforma el Icon en Image para poder escalarlo
-        Image imagenEscalada = imagen.getScaledInstance(300, 50, Image.SCALE_SMOOTH); // Escala la imagen al tamaño del botón
+        Image imagenEscalada = imagen.getScaledInstance(630, 50, Image.SCALE_SMOOTH); // Escala la imagen al tamaño del botón
         iconoEscalado = new ImageIcon(imagenEscalada); // Transforma de vuelta a ImageIcon para poder usarlo en el botón
     }
 
     public void configBoton(JButton boton){
         //Ajusta el tamaño del boton
-        boton.setPreferredSize(new Dimension(300,50));
+        boton.setPreferredSize(new Dimension(630,50));
 
         //Ajusta la fuente de la letra y el tamaño
         boton.setFont(new java.awt.Font("Tempus Sans ITC", 0, 36));
-
+        
         // Establece el icono escalado en los botones
         boton.setIcon(iconoEscalado);
 
@@ -95,6 +100,30 @@ public class PanelInicio extends javax.swing.JPanel {
         addButton(boton);
     }
 
+    public void NuevosBOtones(int num){
+        if (num == 1) {
+            JButton dosEquipos = new JButton("2 Equipos");
+            dosEquipos.setName("4"); 
+            JButton tresEquipos = new JButton("3 Equipos");
+            tresEquipos.setName("6");
+            JButton unirse = new JButton("Unirse a partida");
+
+            this.configRestricciones();
+            this.configBoton(tresEquipos); //Se configuran los nuevos botones
+            this.configBoton(dosEquipos);
+            this.configBoton(unirse);
+        }else{
+            // Lógica para el botón Solitario
+            JButton dosEquipos = new JButton("2 Jugadores");
+            dosEquipos.setName("2");
+            JButton tresEquipos = new JButton("3 Jugadores");
+            tresEquipos.setName("3");
+
+            this.configRestricciones(); //Se configuran nuevamente las restricciones de los botones
+            this.configBoton(tresEquipos); // Se configuran los nuevos botones
+            this.configBoton(dosEquipos);
+        }
+    }
     public void addButton(JButton boton){
         this.add(boton,gbc);
         // Incrementa 'gbc.gridy' para colocar el siguiente componente debajo del anterior

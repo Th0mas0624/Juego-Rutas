@@ -54,7 +54,7 @@ public class PanelRondas extends JPanel{
         
         
     }
-    
+        
     // Funcion encargada de crear los paneles de equipo
     public void crearPanelesEquipo(){
         if (juego.getEquipos().size() == 2) {
