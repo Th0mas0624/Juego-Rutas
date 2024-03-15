@@ -8,14 +8,15 @@ import Model.Builder.MazoJuego;
 public class Juego {
     
     private ArrayList<Equipo> equipos = new ArrayList<>();
-    private MazoJuego mazoJuego = new MazoJuego();
+    private MazoJuego mazoJuego;
     public Jugador jugadorActual;
     public Equipo equipoActual;
     private int numeroEquipo=0;
     private int turnoEquipo=0;
 
     //Funcion encargada de crear las cartas (para primera jugada) o de Recolartarlas en cada inicio de ronda
-    public void iniciarCartas(boolean InicioJuego){ //InicioJuego:
+    public void iniciarCartas(boolean InicioJuego, MazoJuego mazoJuego){ //InicioJuego:
+        this.mazoJuego = mazoJuego;
         if (InicioJuego) {
             mazoJuego.crearCartas();
         }else{
@@ -26,11 +27,12 @@ public class Juego {
     }
 
     //Logica para iniciar el juego (creacion de equipos jugadores y cartas)
-    public void iniciarJuego(int numJugadores,String modoJuego){
+    /*public void iniciarJuego(int numJugadores,String modoJuego){
         if (modoJuego == "Equipos"){
             for (int i = 0; i < numJugadores/2; i++) {
                 equipos.add(new Equipo("E"+Integer.toString(numeroEquipo)));
-                equipos.get(i).agregarJugadores(numJugadores,"Equipos");
+                //equipos.get(i).agregarJugadores(numJugadores,"Equipos");
+                equipos.get(i).agregarJugadores(new Jugador(modoJuego));
                 numeroEquipo += 1;
             }
             System.out.println("Juego Iniciado en modo equipos"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
@@ -38,7 +40,7 @@ public class Juego {
             for (int i = 0; i < numJugadores; i++) {
                 
                 equipos.add(new Equipo("E"+Integer.toString(numeroEquipo)));
-                equipos.get(i).agregarJugadores(numJugadores,"Individual");
+                equipos.get(i).agregarJugadores(new Jugador("Individual"));
                 numeroEquipo += 1;
             }
             System.out.println("Juego Iniciado en modo solitario"+equipos.size()+"  "+equipos.get(0).getJugadores().size());
@@ -46,7 +48,7 @@ public class Juego {
             System.err.println("Modo de juego invalido");
         }
         iniciarCartas(true);
-    }
+    } */
 
     //metodo encargado de repartir las cartas iniciales a cada jugador
     public void repartirCartas(){      
@@ -75,7 +77,7 @@ public class Juego {
             for (Equipo equipo : equipos) {
                 if (equipo.getMillasRecorridas() >= 1000) {
                     equipo.sumarPuntos(true);
-                    iniciarCartas(false);
+                    iniciarCartas(false, mazoJuego);
                     for (Equipo equipo1 : equipos) {
                         equipo1.setMillasRecorridas(0);
                     }

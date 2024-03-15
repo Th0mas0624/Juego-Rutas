@@ -80,7 +80,10 @@ public class Equipo {
         
     }
     
-    public void agregarJugadores(int numJugadores,String modoJuego){
+    public void agregarJugadores(Jugador jugador){
+        this.jugadores.add(jugador);
+    }
+    /*public void agregarJugadores(int numJugadores,String modoJuego){
         String nombre; 
         if (modoJuego == "Equipos") {
             nombre= JOptionPane.showInputDialog(null, "Ingrese el nombre del J1 del equipo "+numeroEquipo);
@@ -91,7 +94,7 @@ public class Equipo {
             nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del J1 del equipo "+numeroEquipo);
             this.jugadores.add(new Jugador(numeroEquipo +"-"+nombre));
         }
-    }
+    }*/
     
     public void sumarPuntos(boolean recorridoC){
         //recorridoC identifica si hizo el recorrido completo

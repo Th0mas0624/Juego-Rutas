@@ -6,7 +6,7 @@ import Model.Jugador;
 import Model.Builder.Carta;
 import Model.Builder.MazoJuego;
 import View.Login;
-// s
+
 import javax.swing.*;
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -284,7 +284,7 @@ public class Cliente implements NetworkGame {
 
     public void start(MazoJuego mazo)
     {
-        cli.getA().iniciarJuego(numOfPlayers, "Individual");
+        cli.getA().iniciarCartas(true, mazo);;
 
         // Tomar cartas
         //cli.getA().iniciarJuego(mazo);
