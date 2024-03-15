@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import Model.Juego;
 import View.PanelInicio;
 
-public class InicioController implements ActionListener{
+public class InicioController{
  
     public PanelInicio panelInicio;
     public Juego juego;
@@ -20,7 +20,7 @@ public class InicioController implements ActionListener{
         
     }
     
-    @Override
+    /*@Override
     public void actionPerformed(ActionEvent e) {
         // Identificar qué botón fue presionado y actuar en consecuencia
         JButton button = (JButton) e.getSource();
@@ -68,5 +68,5 @@ public class InicioController implements ActionListener{
 
     public void setInicio(PanelInicio inicio){
         this.panelInicio = inicio;
-    }
+    }*/
 }

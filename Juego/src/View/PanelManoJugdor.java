@@ -30,7 +30,7 @@ public class PanelManoJugdor extends JPanel{
         initComponent();
 
         
-        repintarCartas();
+        //repintarCartas();
     }
 
     public void initComponent(){

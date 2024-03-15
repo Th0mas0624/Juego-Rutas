@@ -10,6 +10,7 @@ public class Juego {
     private ArrayList<Equipo> equipos = new ArrayList<>();
     private MazoJuego mazoJuego = new MazoJuego();
     public Jugador jugadorActual;
+    public Equipo equipoActual;
     private int numeroEquipo=0;
     private int turnoEquipo=0;
 
@@ -68,6 +69,7 @@ public class Juego {
         if (!verificarVictoria()) {
             jugadorActual = equipos.get(turnoEquipo).turnoJugador();
             equipos.get(turnoEquipo).sumarMillas();
+            equipoActual = equipos.get(turnoEquipo);
             //System.out.println("Tamaño del mazo al recolectar:  "+mazoJuego.getCartasDisponibles().size());
             turnoEquipo += 1;
             for (Equipo equipo : equipos) {

@@ -112,4 +112,7 @@ public class Jugador {
     public String getNombre(){
         return numero;
     }
+    public void setNombre(String numero){
+        this.numero = numero;
+    }
 }

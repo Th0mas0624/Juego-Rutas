@@ -13,7 +13,7 @@ import Model.Juego;
 
 public class FrameJuego extends javax.swing.JFrame {
 
-    PanelInicio inicio;
+   /* PanelInicio inicio;
     JButton btnRetroceso = new JButton("<-");
     Juego juego;
     public FrameJuego(PanelInicio inicio, Juego juego) {
@@ -53,7 +53,7 @@ public class FrameJuego extends javax.swing.JFrame {
         });
     }
 
-    public void panelRondas(){
+    /*public void panelRondas(){
         
         System.out.println("SI SE UNDIO");
         this.remove(inicio);  
@@ -66,5 +66,5 @@ public class FrameJuego extends javax.swing.JFrame {
         this.add(pRondas);
         this.revalidate();
         this.repaint();
-    }
+    }*/
 }

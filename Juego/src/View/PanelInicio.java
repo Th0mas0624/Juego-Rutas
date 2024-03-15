@@ -27,7 +27,7 @@ public class PanelInicio extends javax.swing.JPanel {
     private JButton solitario;
 
     //public Juego juego;
-    public PanelInicio(InicioController icController){
+    /*public PanelInicio(InicioController icController){
         this.iController = icController;
         initComponents();
     }
@@ -116,5 +116,5 @@ public class PanelInicio extends javax.swing.JPanel {
     
     public FrameJuego getFrame(){
         return this.frame;
-    }
+    }*/
 }

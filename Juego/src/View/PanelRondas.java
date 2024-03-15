@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Controller.RondasController;
@@ -12,20 +13,24 @@ import Model.Juego;
 
 
 
-public class PanelRondas extends JPanel{
+public class PanelRondas extends JFrame{
     
 
     RondasController rController;
     Juego juego;
     public PanelManoJugdor panelMano; 
-    public PanelZonasEquipo zonasEquipo1,zonasEequipo2;
+    public PanelZonasEquipo zonasEquipo1;
+    public PanelZonasEquipo zonasEequipo2;
     public PanelMazo  panelMazo;
     public PanelPuntajeYMilla panelPuntaje;
     
 
-    public PanelRondas(RondasController rController, Juego juego){
+    public PanelRondas(Juego juego){
+        super("Juego");
+        rController = new RondasController(juego);
+        setSize(1920, 1080);
         this.juego = juego;
-        this.rController = rController;
+
         initComponent();
     }
 
@@ -96,4 +101,9 @@ public class PanelRondas extends JPanel{
             this.add(panel3,BorderLayout.EAST);
         }*/
     }
+
+    public PanelManoJugdor getPanelManoJugador(){
+        return panelMano;
+    }
+
 }

@@ -1,11 +1,12 @@
 import Controller.InicioController;
 import Model.Juego;
+import Sockets.Servidor;
 import View.FrameJuego;
 import View.PanelInicio;
 
 public class main {
     
-    public static void main(String[] args) {
+   /*public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
 
@@ -21,5 +22,19 @@ public class main {
                 inicio.setFrame(ventana);
             }
         });
+    }*/
+
+    public static void main(String[] args) {
+        Servidor server = new Servidor("localhost", 2);
+        if (args.length > 0) {
+            server.start(Integer.parseInt(args[0]));
+            /* 
+            // PANTALLA DE INICIO
+            // PANTALLA DE SELECCION DE NUMERO DE JUGADORES
+            // PANTALLA DE FINALIZACIÓN
+            */
+        } else {
+            server.start(2396);
+        }
     }
 }
