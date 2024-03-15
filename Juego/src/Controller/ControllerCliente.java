@@ -51,7 +51,7 @@ public class ControllerCliente implements ActionListener {
     
     
     public Jugador obtenerJugadorActual(int id){
-        if (actualPos % 2 == 0){
+        /*if (actualPos % 2 == 0){
             jugadorActual = a.getEquipos().get(0).getJugadores().get(jugadorActualPos);
         }
         else {
@@ -70,7 +70,7 @@ public class ControllerCliente implements ActionListener {
 			tb.getPanelManoJugador().setVisible(false);
 		}
 
-        return jugadorActual;
+        return a.jugadorActual;
 	}
 
 	public void validarPosicionJugador() {
@@ -116,6 +116,9 @@ public class ControllerCliente implements ActionListener {
 	public void refreshView(){
 		tb.zonasEquipo1.repintarZonas();
         tb.zonasEequipo2.repintarZonas();
+		tb.panelMano.repintarCartas();
+		tb.panelMazo.repintarCartas();
+		tb.panelPuntaje.actualizar();
 	}
 	public Juego getA() {
 		return a;
