@@ -1,5 +1,6 @@
 package Model.Builder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -7,7 +8,7 @@ import java.util.List;
 import Model.Equipo;
 import Model.Jugador;
 
-public class MazoJuego {
+public class MazoJuego implements Serializable{
     private ArrayList<Carta> cartasDisponibles;
     private ArrayList<Carta> cartasDescartadas = new ArrayList<>();
     

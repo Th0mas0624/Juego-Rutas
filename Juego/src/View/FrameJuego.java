@@ -12,10 +12,9 @@ import javax.swing.JFrame;
 
 import Controller.RondasController;
 import Model.Juego;
-import Socket.Servidor;
 
 public class FrameJuego extends javax.swing.JFrame{
-
+}
    /* PanelInicio inicio;
     JButton btnRetroceso = new JButton("<-");
     Juego juego;
@@ -70,4 +69,4 @@ public class FrameJuego extends javax.swing.JFrame{
         this.revalidate();
         this.repaint();
     }
-}
+}*/
