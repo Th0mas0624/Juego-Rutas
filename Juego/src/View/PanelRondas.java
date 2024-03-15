@@ -59,7 +59,7 @@ public class PanelRondas extends JFrame{
         
         
     }
-    
+        
     // Funcion encargada de crear los paneles de equipo
     public void crearPanelesEquipo(){
         if (juego.getEquipos().size() == 2) {
@@ -69,7 +69,7 @@ public class PanelRondas extends JFrame{
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    ImageIcon fondo = new ImageIcon("Juego\\Pictures\\equipo 1.png"); // Asegúrate de poner la ruta correcta a tu imagen.
+                    ImageIcon fondo = new ImageIcon("Juego/Pictures/equipo 1.png"); // Asegúrate de poner la ruta correcta a tu imagen.
                     g.drawImage(fondo.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
                 }
             };
@@ -78,7 +78,7 @@ public class PanelRondas extends JFrame{
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    ImageIcon fondo = new ImageIcon("Juego\\Pictures\\equipo 2.png"); // Asegúrate de poner la ruta correcta a tu imagen.
+                    ImageIcon fondo = new ImageIcon("Juego/Pictures/equipo 2.png"); // Asegúrate de poner la ruta correcta a tu imagen.
                     g.drawImage(fondo.getImage(), 0, 0, this.getWidth(), this.getHeight(), this);
                 }
             };

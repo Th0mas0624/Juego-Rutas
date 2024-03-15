@@ -4,14 +4,17 @@ package View;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
 import Controller.RondasController;
 import Model.Juego;
+import Socket.Servidor;
 
-public class FrameJuego extends javax.swing.JFrame {
+public class FrameJuego extends javax.swing.JFrame{
 
    /* PanelInicio inicio;
     JButton btnRetroceso = new JButton("<-");
@@ -66,5 +69,5 @@ public class FrameJuego extends javax.swing.JFrame {
         this.add(pRondas);
         this.revalidate();
         this.repaint();
-    }*/
+    }
 }

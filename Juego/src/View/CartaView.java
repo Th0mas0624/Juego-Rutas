@@ -28,7 +28,7 @@ public class CartaView extends JLabel{
 
     private CartaView(){
         String complementoLlave = "Model.Builder.";
-        String complementoRuta = "Juego\\Pictures\\";
+        String complementoRuta = "Juego/Pictures/";
 
         for (int i = 0; i < llaves.length; i++) {
             String llave = complementoLlave + llaves[i];
@@ -42,6 +42,7 @@ public class CartaView extends JLabel{
 
     //La funcion recibe como atributo el nombre de la clase carta y su funcion para armar la llave
     public ImageIcon getIcon(String key){
+        System.out.println(key);
         return imagenes.get(key);
     }
 }

@@ -1,6 +1,8 @@
 package Model;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import Model.Builder.Carta;
 import Model.Factory.ListFactory;
 import Model.Factory.Zona;
@@ -79,12 +81,15 @@ public class Equipo {
     }
     
     public void agregarJugadores(int numJugadores,String modoJuego){
-        
+        String nombre; 
         if (modoJuego == "Equipos") {
-            this.jugadores.add(new Jugador(numeroEquipo + "J1"));
-            this.jugadores.add(new Jugador(numeroEquipo +"J2"));
+            nombre= JOptionPane.showInputDialog(null, "Ingrese el nombre del J1 del equipo "+numeroEquipo);
+            this.jugadores.add(new Jugador(numeroEquipo +"-" +nombre));
+            nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del J2 del equipo "+numeroEquipo);
+            this.jugadores.add(new Jugador(numeroEquipo +"-"+nombre));
         }else{
-            this.jugadores.add(new Jugador(numeroEquipo +"J1"));
+            nombre=JOptionPane.showInputDialog(null, "Ingrese el nombre del J1 del equipo "+numeroEquipo);
+            this.jugadores.add(new Jugador(numeroEquipo +"-"+nombre));
         }
     }
     
