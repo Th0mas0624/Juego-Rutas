@@ -292,7 +292,7 @@ public class Cliente implements NetworkGame {
         //cli.refreshView();
         System.out.println("Numero de cartas: "+playerList.get(0).getMano().size());
         cli.mostratVista();
-        cli.obtenerJugadorActual(playerID);
+        //cli.obtenerJugadorActual(playerID);
     }
 
 
