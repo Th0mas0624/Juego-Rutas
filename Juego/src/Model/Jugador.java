@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import Model.Builder.Carta;
+import Model.Builder.MazoJuego;
 
 public class Jugador {
     
@@ -87,9 +88,9 @@ public class Jugador {
     }
 
     // Recibe el mazo de cartas disponibles en el juego y remueve una carta
-    public void recogerCartaMazo(ArrayList<Carta> mazoJuego){
+    public void recogerCartaMazo(){
         if (mano.size() < 6) {
-            mano.add(mazoJuego.remove(mazoJuego.size()-1));
+            mano.add(MazoJuego.getInstance().getCartasDisponibles().remove(MazoJuego.getInstance().getCartasDisponibles().size()-1));
         }
     }
 

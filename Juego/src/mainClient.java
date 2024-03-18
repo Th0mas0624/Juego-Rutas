@@ -8,11 +8,14 @@ public class mainClient {
     public static void main(String[] args)
     {
         // Create a BigTwoClient object
-        ControllerCliente game = new ControllerCliente();
+        ControllerCliente game = new
         
-        game.conectar(2);
+        ControllerCliente();
+        
         PanelRondas v = new PanelRondas(game.getA());
         game.cargarVista(v);
+        game.conectar(2);
+        v.crearPanelesDelJuego();
         // Start the game with the shuffled deck
         // game.start(newDeck);
     }

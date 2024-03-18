@@ -11,7 +11,17 @@ import Model.Jugador;
 public class MazoJuego implements Serializable{
     private ArrayList<Carta> cartasDisponibles;
     private ArrayList<Carta> cartasDescartadas = new ArrayList<>();
-    
+    private static MazoJuego instancia = null;
+    public MazoJuego(){
+        crearCartas();
+    }
+
+    public static MazoJuego getInstance() {
+        if (instancia == null) {
+            instancia = new MazoJuego();
+        }
+        return instancia;
+    }
     public void revolverCartas(){
         Collections.shuffle(cartasDisponibles);
     }

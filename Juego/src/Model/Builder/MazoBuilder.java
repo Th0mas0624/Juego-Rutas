@@ -1,8 +1,9 @@
 package Model.Builder;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class MazoBuilder {
+public class MazoBuilder implements Serializable{
     
     private ArrayList<Carta> mazo = new ArrayList<>();
 

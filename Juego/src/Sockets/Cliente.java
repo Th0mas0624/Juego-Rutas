@@ -1,6 +1,7 @@
 package Sockets;
 
 import Controller.ControllerCliente;
+import Model.Equipo;
 import Model.Juego;
 import Model.Jugador;
 import Model.Builder.Carta;
@@ -36,12 +37,12 @@ public class Cliente implements NetworkGame {
     private ArrayList<Jugador> playerList; // A list of players
     private boolean gameJoined = false, gameInProgress = false;
 
-    public Cliente(int numOfPlayers)
+    public Cliente(int numOfPlayers, ControllerCliente cli)
     {
+        this.cli = cli;
         this.numOfPlayers = numOfPlayers;
         Login login = new Login(this);
         System.out.format("IP: %s Port: %s%n", serverIP, serverPort);
-
         this.playerList = new ArrayList<Jugador>();
         for(int i = 0;i < this.numOfPlayers; ++i)
         {
@@ -288,6 +289,8 @@ public class Cliente implements NetworkGame {
 
         // Tomar cartas
         //cli.getA().iniciarJuego(mazo);
+        //cli.refreshView();
+        System.out.println("Numero de cartas: "+playerList.get(0).getMano().size());
         cli.mostratVista();
         cli.obtenerJugadorActual(playerID);
     }

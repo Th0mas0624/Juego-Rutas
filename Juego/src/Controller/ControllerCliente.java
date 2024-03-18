@@ -25,13 +25,14 @@ public class ControllerCliente implements ActionListener {
         this.a = new Juego();
     }
     public void conectar(int num){
+		
         crearCliente(num);
         
     }
     
     public void crearCliente(int num){
         
-        cli = new Cliente(num);
+        cli = new Cliente(num, this);
 		cli.setCli(this);
         
     }
@@ -51,17 +52,19 @@ public class ControllerCliente implements ActionListener {
     
     
     public Jugador obtenerJugadorActual(int id){
-        /*if (actualPos % 2 == 0){
+        if (actualPos % 2 == 0){
             jugadorActual = a.getEquipos().get(0).getJugadores().get(jugadorActualPos);
         }
         else {
             jugadorActual = a.getEquipos().get(1).getJugadores().get(jugadorActualPos);
         }
-        /*if (jugadorActual.getMano().size()<7) {
-            jugadorActual.robar();
-            tb.setPilas(a.getJ().getEquipo1(), a.getJ().getEquipo2(), jugadorActual.getNombre());
-        }*/
-
+        if (jugadorActual.getMano().size()<7) {
+            jugadorActual.recogerCartaMazo();
+            //tb.setPilas(a.getEquipo1(), a.getEquipo2(), jugadorActual.getNombre());
+        }
+		System.out.println("True "+id);
+		System.out.println("False "+actualPos);
+		System.out.println(tb.getPanelManoJugador());
 		if (id == actualPos){
 			//tb.setButtonIcons(jugadorActual.getMano());
 			tb.getPanelManoJugador().setVisible(true);
@@ -70,7 +73,7 @@ public class ControllerCliente implements ActionListener {
 			tb.getPanelManoJugador().setVisible(false);
 		}
 
-        return a.jugadorActual;
+        return jugadorActual;
 	}
 
 	public void validarPosicionJugador() {

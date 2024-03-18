@@ -13,13 +13,19 @@ public class Juego {
     public Equipo equipoActual;
     private int numeroEquipo=0;
     private int turnoEquipo=0;
+    private Equipo equipo1, equipo2;
 
+    public Juego(){
+        equipo1 = new Equipo("0");
+        equipo2 = new Equipo("1");
+        equipos = new ArrayList<Equipo>();
+        equipos.add(equipo1);
+        equipos.add(equipo2);
+    }
     //Funcion encargada de crear las cartas (para primera jugada) o de Recolartarlas en cada inicio de ronda
     public void iniciarCartas(boolean InicioJuego, MazoJuego mazoJuego){ //InicioJuego:
         this.mazoJuego = mazoJuego;
-        if (InicioJuego) {
-            mazoJuego.crearCartas();
-        }else{
+        if(!InicioJuego){
             mazoJuego.recolectarCartas(equipos);
         }
         mazoJuego.revolverCartas();
@@ -119,5 +125,11 @@ public class Juego {
     public MazoJuego getMazoJuego(){
         return mazoJuego;
     }
-    
+
+    public Equipo getEquipo1(){
+        return equipo1;
+    }
+    public Equipo getEquipo2(){
+        return equipo2;
+    }
 }

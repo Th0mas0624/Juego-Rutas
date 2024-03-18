@@ -37,7 +37,7 @@ public class PanelRondas extends JFrame{
     public void initComponent(){
         this.setLayout(new BorderLayout(3,3));
         
-        crearPanelesDelJuego();
+        //crearPanelesDelJuego();
         
     }
 
@@ -46,6 +46,7 @@ public class PanelRondas extends JFrame{
 
         //Panel para mostrar la mano del jugador actual
         panelMano = new PanelManoJugdor(juego, rController); 
+        
         this.add(panelMano,BorderLayout.SOUTH);
 
         //Panel para mostrar el mazo del juego
@@ -54,6 +55,7 @@ public class PanelRondas extends JFrame{
 
         panelPuntaje = new PanelPuntajeYMilla(juego);
         this.add(panelPuntaje, BorderLayout.NORTH);
+
         crearPanelesEquipo();
 
         
@@ -62,6 +64,7 @@ public class PanelRondas extends JFrame{
         
     // Funcion encargada de crear los paneles de equipo
     public void crearPanelesEquipo(){
+        System.out.println("AQUIIIIII "+juego.getEquipos().size());
         if (juego.getEquipos().size() == 2) {
             //ImageIcon icon1 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(ruta));
             //ImageIcon icon2 = new ImageIcon(Toolkit.getDefaultToolkit().getImage(ruta));
@@ -105,5 +108,7 @@ public class PanelRondas extends JFrame{
     public PanelManoJugdor getPanelManoJugador(){
         return panelMano;
     }
+
+    
 
 }
