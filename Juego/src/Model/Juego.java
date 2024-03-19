@@ -8,7 +8,7 @@ import Model.Builder.MazoJuego;
 public class Juego {
     
     private ArrayList<Equipo> equipos = new ArrayList<>();
-    private MazoJuego mazoJuego;
+    private MazoJuego mazoJuego = new MazoJuego();
     public Jugador jugadorActual;
     public Equipo equipoActual;
     private int numeroEquipo=0;
@@ -24,9 +24,12 @@ public class Juego {
     }
     //Funcion encargada de crear las cartas (para primera jugada) o de Recolartarlas en cada inicio de ronda
     public void iniciarCartas(boolean InicioJuego, MazoJuego mazoJuego){ //InicioJuego:
-        this.mazoJuego = mazoJuego;
+        //this.mazoJuego = mazoJuego;
         if(!InicioJuego){
+            
             mazoJuego.recolectarCartas(equipos);
+        }else{
+            mazoJuego.crearCartas();
         }
         mazoJuego.revolverCartas();
         repartirCartas();

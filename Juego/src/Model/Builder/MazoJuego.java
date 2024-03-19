@@ -12,6 +12,7 @@ public class MazoJuego implements Serializable{
     private ArrayList<Carta> cartasDisponibles;
     private ArrayList<Carta> cartasDescartadas = new ArrayList<>();
     private static MazoJuego instancia = null;
+    
     public MazoJuego(){
         crearCartas();
     }

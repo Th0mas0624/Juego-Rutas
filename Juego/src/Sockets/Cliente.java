@@ -48,6 +48,7 @@ public class Cliente implements NetworkGame {
         {
             this.playerList.add(new Jugador(""));
             this.playerList.get(i).setNombre(null);
+            cli.getA().getEquipo1().agregarJugadores(playerList.get(i));
         }
 
         this.makeConnection();
