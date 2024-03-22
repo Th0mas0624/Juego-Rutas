@@ -78,9 +78,9 @@ public class Jugador {
 
         //System.out.println("Buscada: "+nombreCarta);
         for (int i = 0; i < mano.size(); i++) {
-            //System.out.println(mano.get(i).getClass().getName() + mano.get(i).getfuncion());
+            System.out.println("Mano: "+mano.get(i).getClass().getName() + mano.get(i).getfuncion());
             if (nombreCarta.equals(mano.get(i).getClass().getName() + mano.get(i).getfuncion())) {
-                //System.out.println("Si entro");
+                System.out.println("Si entro");
                 return mano.get(i);
             }
         }
