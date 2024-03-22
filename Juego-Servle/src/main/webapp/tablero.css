@@ -1,1 +1,43 @@
 @charset "ISO-8859-1";
+body {
+	display: flex;
+	justify-content: center;
+	height: 100vh;
+	align-items: center;
+}
+
+.contenedor-principal {
+    display: flex;
+    justify-content: space-between; /* Alinea a los hijos a los extremos */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.Equipo1, .Equipo2 {
+    display: flex;
+    flex-direction: row;
+    align-items: center; /* Alinea los botones al centro del contenedor */
+}
+
+.Equipo1 button, .Equipo2 button {
+    width: 200px;
+    height: 100px;
+    margin: 5px;
+    background-color: #f0f0f0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#Mazo1{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea los botones al centro del #Mazo1 */
+    background-color: red;
+}
+
+#Mazo2{
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea los botones al centro del #Mazo1 */
+    background-color: blue;
+}

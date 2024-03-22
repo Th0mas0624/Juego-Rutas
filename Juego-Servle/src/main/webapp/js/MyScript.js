@@ -50,11 +50,13 @@ function volverAtras() {
 function iniciar2Jugadores(){
 	iniciarJuego(2,"Individual");
 	console.log("Si se llama");
+	window.location.href = 'Tablero.html'; // Redirecciona a dosJugadores.html
 }
 
 function iniciar2Equipos(){
 	iniciarJuego(4,"Equipos");
 	console.log("Si se llama");
+	window.location.href = 'Tablero.html';
 }
 function reglasJuego(){
 	var contenedor = document.getElementById("contenedorImagen");
