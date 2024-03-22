@@ -21,8 +21,8 @@ body {
 }
 
 .Equipo1 button, .Equipo2 button {
-    width: 200px;
-    height: 100px;
+    width: 100px;
+    height: 200px;
     margin: 5px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;

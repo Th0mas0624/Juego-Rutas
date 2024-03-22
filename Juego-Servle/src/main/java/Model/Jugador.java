@@ -36,6 +36,7 @@ public class Jugador {
          */
         boolean auxiliar = false;
         Carta cartaSeleccionada = buscarCartaSeleccionada(nombreCarta);
+        System.out.println(cartaSeleccionada);
         String auxilarTipoCarta = cartaSeleccionada.getClass().getName();
 
         if ((auxilarTipoCarta+cartaSeleccionada.getfuncion()).equals("Model.Builder.AtaqueVelocidad") ) {

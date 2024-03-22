@@ -29,4 +29,14 @@
     <servlet-name>Servlet_Cartas</servlet-name>
     <url-pattern>/Servlet_Cartas</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>JugarRonda</display-name>
+    <servlet-name>JugarRonda</servlet-name>
+    <servlet-class>controller.JugarRonda</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>JugarRonda</servlet-name>
+    <url-pattern>/JugarRonda</url-pattern>
+  </servlet-mapping>
 </web-app>

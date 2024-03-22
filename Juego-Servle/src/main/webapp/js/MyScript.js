@@ -61,37 +61,32 @@ function pintarLasCartas(cartas) {
         // Establecer la imagen en el botón
         boton.style.backgroundImage = `url(${rutaImagen})`;
         boton.style.backgroundSize = 'cover'; // Asegura que la imagen cubra todo el botón
+        boton.setAttribute("data-nombre",Object.keys(diccionarioImagenes).find(llave => diccionarioImagenes[llave] === diccionarioImagenes[carta]));
+        console.log(boton.getAttribute("data-nombre"));
+    	//boton.style.transform = "rotate(90deg)";
+        
     });
 }
  
-/*function mostrarBotonesIndividual() {
-    document.getElementById("Individual").style.display = "none";
-    document.getElementById("2 Jugadores").style.display = "block";
-    document.getElementById("3 Jugadores").style.display = "block";
-    document.getElementById("botonAtras").style.display = "block";
-    document.getElementById("Equipos").style.display = "none";
-    document.getElementById("buttonReglas").style.display = "none";
-}*/
-
-/*function mostrarBotonesEquipos() {
-    document.getElementById("Equipos").style.display = "none";
-    document.getElementById("2 Equipos").style.display = "block";
-    document.getElementById("3 Equipos").style.display = "block";
-    document.getElementById("botonAtras").style.display = "block";
-    document.getElementById("Individual").style.display = "none";
-    document.getElementById("buttonReglas").style.display = "none";
-}*/
-
-/*function volverAtras() {
-    document.getElementById("Individual").style.display = "block";
-    document.getElementById("Equipos").style.display = "block";
-    document.getElementById("2 Equipos").style.display = "none";
-    document.getElementById("3 Equipos").style.display = "none";
-    document.getElementById("2 Jugadores").style.display = "none";
-    document.getElementById("3 Jugadores").style.display = "none";
-    document.getElementById("botonAtras").style.display = "none";
-    document.getElementById("buttonReglas").style.display = "block";
-}*/
+function jugarRonda(boton){
+	let carta = boton.getAttribute("data-nombre");
+	console.log(boton);
+	console.log(carta);
+	console.log(boton.getAttribute("data-nombre"));
+	let mydata={
+		carta:carta,
+	};
+	$.ajax({
+        url: 'jugar',
+        type: 'GET',
+        data: mydata,
+        success: function(r) {
+            paintAns("Inicio Juego"); // Convierte la respuesta a string si es necesario
+        }
+    });
+    
+    //cartas();
+}
  
 function iniciar2Jugadores(){
 	iniciarJuego(2,"Individual");
@@ -117,7 +112,6 @@ function reglasJuego(){
     imagen.src = 'Pictures/100.png'; // Asegúrate de reemplazar esto con la URL real de tu imagen
     // Hace el contenedor visible
     contenedor.style.display = "block";
-	
 }
 
 function cerrarImagen() {
