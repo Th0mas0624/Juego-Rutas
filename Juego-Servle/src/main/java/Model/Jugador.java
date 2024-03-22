@@ -62,6 +62,8 @@ public class Jugador {
             for (Carta carta : mano) {
                 if (carta == cartaSeleccionada) {
                     mano.remove(carta);
+                    System.out.println("Se jugo la carta");
+            
                     break;
                 }
             }

@@ -31,7 +31,11 @@ public class JugarRonda extends HttpServlet {
 			System.out.println("Boton undido: "+pa);
 			j.jugarRonda();
 			System.out.println("Jugador Actual: "+j.jugadorActual);
-			j.jugadorActual.jugada(j.getEquipos(), pa);
+			boolean auxiliar = j.jugadorActual.jugada(j.getEquipos(), pa);
+			if(auxiliar) {
+				j.jugadorActual.recogerCartaMazo(j.getMazoJuego().getCartasDisponibles());
+				System.out.println("Carta recogida exitosamente");
+			}
 			out.flush();
 		}
 	}

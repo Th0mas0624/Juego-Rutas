@@ -109,7 +109,7 @@ function reglasJuego(){
 	var contenedor = document.getElementById("contenedorImagen");
     var imagen = document.getElementById("imagenReglas");
     // Especifica la ruta de tu imagen
-    imagen.src = 'Pictures/100.png'; // Asegúrate de reemplazar esto con la URL real de tu imagen
+    imagen.src = 'Pictures/200.png'; // Asegúrate de reemplazar esto con la URL real de tu imagen
     // Hace el contenedor visible
     contenedor.style.display = "block";
 }
