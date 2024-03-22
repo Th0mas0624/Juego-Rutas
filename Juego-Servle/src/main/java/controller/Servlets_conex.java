@@ -58,10 +58,10 @@ public class Servlets_conex extends HttpServlet {
 		}	
 		
 		// Obtiene el RequestDispatcher para el siguiente servlet
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cartas");
+        //RequestDispatcher dispatcher = request.getRequestDispatcher("/cartas");
         
         // Reenvía la solicitud junto con los atributos al siguiente servlet
-        dispatcher.forward(request, response);
+        //dispatcher.forward(request, response);
 
 	}
 

@@ -43,8 +43,11 @@ public class Servlet_Cartas extends HttpServlet {
 			 * Esta solucion es una aproximacion que solo funciona cuando hay 2 jugadores
 			 * */
 			for (Equipo equipo : j.getEquipos()) {
+				System.out.println(equipo);
 				for (Jugador jugador: equipo.getJugadores()) {
+					System.out.println(jugador);
 					for (Carta carta : jugador.getMano()) {
+						System.out.println(carta);
 						cartasJugadores.add(carta.getClass().getName()+carta.getfuncion());
 						System.out.println(carta.getClass().getName()+carta.getfuncion());
 					}

@@ -30,7 +30,8 @@ public class JugarRonda extends HttpServlet {
 			String pa=request.getParameter("carta");
 			System.out.println("Boton undido: "+pa);
 			j.jugarRonda();
-			//j.jugadorActual.jugada(j.getEquipos(), pa);
+			System.out.println("Jugador Actual: "+j.jugadorActual);
+			j.jugadorActual.jugada(j.getEquipos(), pa);
 			out.flush();
 		}
 	}

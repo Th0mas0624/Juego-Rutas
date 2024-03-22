@@ -17,7 +17,7 @@ public class Jugador {
 
     //
     public boolean jugada(ArrayList<Equipo> equipos, String nombreCarta){
-        
+        System.out.println("Se paso a la jugada la carta: "+nombreCarta);
         Equipo miEquipo = null;
         Equipo equipoEnemigo = null;
 
@@ -36,7 +36,7 @@ public class Jugador {
          */
         boolean auxiliar = false;
         Carta cartaSeleccionada = buscarCartaSeleccionada(nombreCarta);
-        System.out.println(cartaSeleccionada);
+        System.out.println("Carta Seleccionada: "+cartaSeleccionada);
         String auxilarTipoCarta = cartaSeleccionada.getClass().getName();
 
         if ((auxilarTipoCarta+cartaSeleccionada.getfuncion()).equals("Model.Builder.AtaqueVelocidad") ) {
@@ -68,7 +68,7 @@ public class Jugador {
             
             //mano.remove(cartaSeleccionada);
         }else{
-            JOptionPane.showMessageDialog(null, "Esta Carta no se puede jugar \n Juega otra carta o descartala");
+            System.out.println("Esta Carta no se puede jugar \n Juega otra carta o descartala");
         }
 
         return auxiliar;

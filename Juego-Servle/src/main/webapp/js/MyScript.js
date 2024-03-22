@@ -28,10 +28,9 @@ function iniciarJuego(numJugadores, modoJuego){
         data: mydata,
         success: function(r) {
             paintAns("Inicio Juego"); // Convierte la respuesta a string si es necesario
+            cartas();
         }
     });
-	
-	
 }
 function cartas(){    
     $.ajax({
@@ -39,7 +38,7 @@ function cartas(){
         type: 'GET',
         success: function(r) {
                 try {
-                     // Intenta parsear 'r'
+                     
                     pintarLasCartas(r); // Si el parseo es exitoso, pasa los datos a pintarLasCartas
                 } catch (e) {
                     console.error("Error parseando la respuesta JSON: ", e);
@@ -82,6 +81,7 @@ function jugarRonda(boton){
         data: mydata,
         success: function(r) {
             paintAns("Inicio Juego"); // Convierte la respuesta a string si es necesario
+            cartas();
         }
     });
     
@@ -94,7 +94,7 @@ function iniciar2Jugadores(){
 	document.getElementById("botones").style.display = "none";
 	document.getElementById("contenedor").style.display = "flex";
 	//window.location.href = 'Tablero.html'; // Redirecciona a dosJugadores.html
-	cartas()
+	//cartas();
 }
 
 function iniciar2Equipos(){
@@ -103,7 +103,7 @@ function iniciar2Equipos(){
 	document.getElementById("botones").style.display = "none";
 	document.getElementById("contenedor").style.display = "flex";
 	//window.location.href = 'Tablero.html'; // Redirecciona a dosJugadores.html
-	cartas()
+	//cartas();
 }
 function reglasJuego(){
 	var contenedor = document.getElementById("contenedorImagen");
