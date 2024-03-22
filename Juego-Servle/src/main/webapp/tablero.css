@@ -13,9 +13,11 @@ body {
 }
 
 .Equipo1, .Equipo2 {
-    display: flex;
+	flex: 1; /* Esto hace que ambos contenedores tomen la misma cantidad de espacio disponible */
+    display: flex; /* Activa Flexbox para estos contenedores también, si necesitas más control interno */
+    align-items: center; /* Centra el contenido verticalmente */
     flex-direction: row;
-    align-items: center; /* Alinea los botones al centro del contenedor */
+    /*)width: 600px;*/
 }
 
 .Equipo1 button, .Equipo2 button {
@@ -28,6 +30,14 @@ body {
     cursor: pointer;
 }
 
+.Equipo1{
+	text-align: left;
+	justify-content: flex-start;
+}
+.Equipo2{
+	text-align: right;
+	justify-content: flex-end;
+}
 #Mazo1{
     display: flex;
     flex-direction: column;
@@ -40,4 +50,31 @@ body {
     flex-direction: column;
     align-items: center; /* Alinea los botones al centro del #Mazo1 */
     background-color: blue;
+}
+
+#Zona1{
+	display: flex;
+	background-image: url('Pictures/equipo 1.png');
+	background-size: cover; /* Esto harï¿½ que la imagen cubra todo el fondo */
+	background-position: center; /* Centra la imagen en la pï¿½gina */
+	justify-content: center; /* Centra horizontalmente */
+  	align-items: center; /* Centra verticalmente */
+  	height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+	flex-direction: column;
+	background-color: red;
+	width: 100%;	
+}
+	
+
+#Zona2{
+	display: flex;
+	background-image: url('Pictures/equipo 2.png');
+	background-size: cover; /* Esto harï¿½ que la imagen cubra todo el fondo */
+	background-position: center; /* Centra la imagen en la pï¿½gina */
+	justify-content: center; /* Centra horizontalmente */
+  	align-items: center; /* Centra verticalmente */
+  	height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
+	flex-direction: column;
+	background-color: red;
+	width: 100%;
 }

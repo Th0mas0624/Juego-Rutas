@@ -1,5 +1,6 @@
 package controller;
 
+import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -14,66 +15,54 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
-
+import com.google.gson.Gson;
 
 /**
  * Servlet implementation class MyServlet
  */
-@WebServlet("/ruta")
+@WebServlet("/iniciar")
 
 public class Servlets_conex extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
     
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+	Juego j;
     public Servlets_conex() {
         super();
-        // TODO Auto-generated constructor stub
+        
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
     
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-    	List<String> cartasJugadores = new ArrayList<String>();
-    	
-    	
+    	System.out.println("s"+this.getServletContext().getAttribute("juego"));
+    	if(this.getServletContext().getAttribute("juego") == null) {    		
+    		j = new Juego();
+    		// Estableces el atributo en la solicitud
+    		this.getServletContext().setAttribute("juego", j);
+    	}
+    	System.out.println("s"+this.getServletContext().getAttribute("juego"));
 		PrintWriter out=response.getWriter();
-		
-		Juego m=new Juego();
-		
 		String pa=request.getParameter("numJugadores");
 		String pb=request.getParameter("modoJuego");
+		System.out.println(pa + pb);
+		int a=0;
+		if(pa != null && !pa.isEmpty() && pb != null) {
+		    a = Integer.parseInt(pa);
+		    // Continúa con la lógica de tu servlet aquí
+		    boolean iniciar = j.iniciarJuego( a,pb);
+		    out.println(pb);
+		    out.println(iniciar);
+		    System.out.println("Equipos: "+j.getEquipos().size());
+		    System.out.println("Jugadores: "+j.getEquipos().get(0).getJugadores().size());
+		    System.out.println("Mazo: "+j.getMazoJuego().getCartasDisponibles().size());
+		}	
 		
-		int a=Integer.parseInt(pa);
-		
+		// Obtiene el RequestDispatcher para el siguiente servlet
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/cartas");
+        
+        // Reenvía la solicitud junto con los atributos al siguiente servlet
+        dispatcher.forward(request, response);
 
-	
-		
-		
-		boolean iniciar = m.iniciarJuego( a,pb);
-		out.println(pb);
-		out.println(iniciar);
-		System.out.println("Equipos: "+m.getEquipos().size());
-		System.out.println("Jugadores: "+m.getEquipos().get(0).getJugadores().size());
-		System.out.println("Mazo: "+m.getMazoJuego().getCartasDisponibles().size());
-		
-		/* Las primeras 6 cartas pertenecen al jugador 1 y las otras 6 pertenecen al jugador 2
-		 * Esta solucion es una aproximacion que solo funciona cuando hay 2 jugadores
-		 * */
-		for (Equipo equipo : m.getEquipos()) {
-			for (Jugador jugador: equipo.getJugadores()) {
-				for (Carta carta : jugador.getMano()) {
-					cartasJugadores.add(carta.getClass().getName()+carta.getfuncion());
-				}
-			}
-		}
-		
-		//String json = new Gson().toJson(cartasJugadores);
 	}
 
 	/**

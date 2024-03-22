@@ -19,4 +19,14 @@
     <servlet-name>Servlets_conex</servlet-name>
     <url-pattern>/Servlets_conex</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Servlet_Cartas</display-name>
+    <servlet-name>Servlet_Cartas</servlet-name>
+    <servlet-class>controller.Servlet_Cartas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet_Cartas</servlet-name>
+    <url-pattern>/Servlet_Cartas</url-pattern>
+  </servlet-mapping>
 </web-app>

@@ -4,8 +4,8 @@
 <meta charset="ISO-8859-1">
 <title>Juego Rutas</title>
 	<link rel="stylesheet" href="index.css">
+	<link rel="stylesheet" href="tablero.css">
 </head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <body>
 
 	<!-- 
@@ -22,16 +22,17 @@
 	<div id="resultado">
 	</div> -->
 	
-	<div class="Botones">
-		<button id="Individual" class="ImgBotones" onclick="mostrarBotonesIndividual()">Modo Individual</button>
-		<button id="Equipos" class="ImgBotones" onclick="mostrarBotonesEquipos()">Modo Equipos</button>
-	    <button id="2 Jugadores" class="ImgBotones" style="display: none;" onclick="iniciar2Jugadores()">2 Jugadores</button>
-	    <button id="3 Jugadores" class ="ImgBotones" style="display: none">3 Jugadores</button>
+	<div id="botones" class="Botones">
+	
+		<!-- <button id="Individual" class="ImgBotones" onclick="mostrarBotonesIndividual()">Modo Individual</button> -->
+		<!-- <button id="Equipos" class="ImgBotones" onclick="mostrarBotonesEquipos()">Modo Equipos</button> -->
+	    <button id="2 Jugadores" class="ImgBotones" style="display: block;" onclick="iniciar2Jugadores()">2 Jugadores</button>
+	    <button id="3 Jugadores" class ="ImgBotones" style="display: block">3 Jugadores</button>
 	    
-	    <button id="2 Equipos" class="ImgBotones" style="display: none;" onclick="iniciar2Equipos">2 Equipos</button>
-	    <button id="3 Equipos" class="ImgBotones" style="display: none;">3 Equipos</button>
-	    
-	    <button id="botonAtras" class="ImgBotones" style="display: none;" onclick="volverAtras()">Atrás</button>
+	    <button id="2 Equipos" class="ImgBotones" style="display: block;" onclick="iniciar2Equipos()">2 Equipos</button>
+	    <button id="3 Equipos" class="ImgBotones" style="display: block;">3 Equipos</button>
+   
+	    <!-- <button id="botonAtras" class="ImgBotones" style="display: none;" onclick="volverAtras()">Atrás</button> -->
 	    
 		<button id="buttonReglas" class="ImgBotones" onclick="reglasJuego()"> Reglas Juego</button>
 		
@@ -42,7 +43,39 @@
 	    </div>
 
 	</div>
+	<div id = "contenedor" class="contenedor-principal" style="display: none ">
+		<div class="Equipo1">
+			<!-- Mazo1: mano del jugador 1-->
+			<div id="Mazo1">
+				<label for="nombre">Jugador 1:</label>
+				<button id="Carta1"></button>
+				<button id="Carta2"></button>
+				<button id="Carta3"></button>
+				<button id="Carta4"></button>
+				<button id="Carta5"></button>
+				<button id="Carta6"></button>
+			</div>
+			<div id="Zona1">
+				<img alt="" src="Pictures/200.png">
+			</div>
+		</div>
+		
+		<div class="Equipo2">
+			<div id="Zona2">
+			</div>
+			<div id="Mazo2">
+				<label for="nombre">Jugador 2:</label>
+				<button id="Carta7"></button>
+				<button id="Carta8"></button>
+				<button id="Carta9"></button>
+				<button id="Carta10"></button>
+				<button id="Carta11"></button>
+				<button id="Carta12"></button>
+			</div>
+		</div>
+	</div>
 </body>
 
 <script type="text/javascript" src="js/MyScript.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </html>
