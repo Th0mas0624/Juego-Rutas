@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Juego Rutas</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<body>
+
+	<!-- 
+	<input id="numJugadores" placeholder="Numero de juegadores:">
+	<br>
+	<input id="modoJuego" placeholder="Modo de Juego" style="
+	border-color: blue;">
+	<br>
+	<button onclick="iniciarJuego()" style="
+		font-size: small;
+		text-align: center;
+		">QUE CHIMBA!</button>
+	
+	<div id="resultado">
+	</div> -->
+	
+	<div class="Botones">
+		<button id="Individual" class="ImgBotones" onclick="mostrarBotonesIndividual()">Modo Individual</button>
+		<button id="Equipos" class="ImgBotones" onclick="mostrarBotonesEquipos()">Modo Equipos</button>
+	    <button id="2 Jugadores" class="ImgBotones" style="display: none;" onclick="iniciar2Jugadores()">2 Jugadores</button>
+	    <button id="3 Jugadores" class ="ImgBotones" style="display: none">3 Jugadores</button>
+	    
+	    <button id="2 Equipos" class="ImgBotones" style="display: none;" onclick="iniciar2Equipos">2 Equipos</button>
+	    <button id="3 Equipos" class="ImgBotones" style="display: none;">3 Equipos</button>
+	    
+	    <button id="botonAtras" class="ImgBotones" style="display: none;" onclick="volverAtras()">Atrás</button>
+	    
+		<button id="buttonReglas" class="ImgBotones" onclick="reglasJuego()"> Reglas Juego</button>
+		
+		<div id="contenedorImagen" style="position: relative; display: none;">
+	        <img id="imagenReglas" src="" style="width: 100%; max-width: 400px;">
+	        <!-- Botón de cerrar -->
+	        <button onclick="cerrarImagen()" style="position: absolute; top: 0; right: 0;">Cerrar</button>
+	    </div>
+
+	</div>
+</body>
+
+<script type="text/javascript" src="js/MyScript.js"></script>
+</html>
