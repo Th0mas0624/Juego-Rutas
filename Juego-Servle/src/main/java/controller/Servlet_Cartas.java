@@ -35,26 +35,29 @@ public class Servlet_Cartas extends HttpServlet {
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("Desde cartas "+this.getServletContext().getAttribute("juego"));
-		j = (Juego) this.getServletContext().getAttribute("juego");
-		PrintWriter out=response.getWriter();
-		
-		/* Las primeras 6 cartas pertenecen al jugador 1 y las otras 6 pertenecen al jugador 2
-		 * Esta solucion es una aproximacion que solo funciona cuando hay 2 jugadores
-		 * */
-		for (Equipo equipo : j.getEquipos()) {
-			for (Jugador jugador: equipo.getJugadores()) {
-				for (Carta carta : jugador.getMano()) {
-					cartasJugadores.add(carta.getClass().getName()+carta.getfuncion());
+		if(this.getServletContext().getAttribute("juego") != null) {
+			j = (Juego) this.getServletContext().getAttribute("juego");
+			PrintWriter out=response.getWriter();
+			
+			/* Las primeras 6 cartas pertenecen al jugador 1 y las otras 6 pertenecen al jugador 2
+			 * Esta solucion es una aproximacion que solo funciona cuando hay 2 jugadores
+			 * */
+			for (Equipo equipo : j.getEquipos()) {
+				for (Jugador jugador: equipo.getJugadores()) {
+					for (Carta carta : jugador.getMano()) {
+						cartasJugadores.add(carta.getClass().getName()+carta.getfuncion());
+						System.out.println(carta.getClass().getName()+carta.getfuncion());
+					}
 				}
 			}
+			
+			String json = new Gson().toJson(cartasJugadores); // Convierte la lista a JSON usando Gson
+			response.setContentType("application/json");
+			response.setCharacterEncoding("UTF-8");
+			System.out.println(json);
+			out.print(json);
+			out.flush();
 		}
-		
-		String json = new Gson().toJson(cartasJugadores); // Convierte la lista a JSON usando Gson
-		response.setContentType("application/json");
-		response.setCharacterEncoding("UTF-8");
-		System.out.println(json);
-		out.print(json);
-		out.flush();
 	}
 
 	/**

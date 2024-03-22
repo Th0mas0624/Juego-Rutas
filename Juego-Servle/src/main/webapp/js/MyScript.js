@@ -33,16 +33,22 @@ function iniciarJuego(numJugadores, modoJuego){
 	
 	
 }
-function cartas(){	
+function cartas(){    
     $.ajax({
         url: 'cartas',
         type: 'GET',
         success: function(r) {
-            // Suponiendo que 'r' es la lista de cartas
-            pintarLasCartas(JSON.parse(r)); // Ahora pasas 'r' directamente a pintarLasCartas
+                try {
+                     // Intenta parsear 'r'
+                    pintarLasCartas(r); // Si el parseo es exitoso, pasa los datos a pintarLasCartas
+                } catch (e) {
+                    console.error("Error parseando la respuesta JSON: ", e);
+                    // Aquí puedes manejar el error, por ejemplo, mostrando un mensaje al usuario
+                }
         }
     });
 }
+
  
 function pintarLasCartas(cartas) {
     cartas.forEach((carta, index) => {
