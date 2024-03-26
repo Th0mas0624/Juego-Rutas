@@ -39,4 +39,14 @@
     <servlet-name>JugarRonda</servlet-name>
     <url-pattern>/JugarRonda</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Servlet_Zonas</display-name>
+    <servlet-name>Servlet_Zonas</servlet-name>
+    <servlet-class>controller.Servlet_Zonas</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Servlet_Zonas</servlet-name>
+    <url-pattern>/Servlet_Zonas</url-pattern>
+  </servlet-mapping>
 </web-app>

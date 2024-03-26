@@ -32,6 +32,16 @@ function iniciarJuego(numJugadores, modoJuego){
         }
     });
 }
+
+function zonas(){
+	$.ajax({
+		url: 'zonas',
+		type: 'GET',
+		success: function(r){
+			pintarLasZonas(r);
+		}
+	});
+}
 function cartas(){    
     $.ajax({
         url: 'cartas',
@@ -66,12 +76,24 @@ function pintarLasCartas(cartas) {
         
     });
 }
+function pintarLasZonas(zonas){
+	zonas.forEach((zona,index)=>{
+		console.log(zona, index);
+		let label = document.getElementById(`zona${index+1}`);
+		let rutaImagen = "Pictures/"+diccionarioImagenes[zona]+".png";
+		if (zona != "null"){
+			label.style.backgroundImage = `url(${rutaImagen})`;
+			label.style.backgroundSize = `cover`;
+			label.setAttribute("data-nombre", Object.keys(diccionarioImagenes).find(llave => diccionarioImagenes[llave] === diccionarioImagenes[label]));	
+		}
+	});
+}
  
 function jugarRonda(boton){
 	let carta = boton.getAttribute("data-nombre");
-	console.log(boton);
-	console.log(carta);
-	console.log(boton.getAttribute("data-nombre"));
+	//console.log(boton);
+	//console.log(carta);
+	//console.log(boton.getAttribute("data-nombre"));
 	let mydata={
 		carta:carta,
 	};
@@ -82,9 +104,9 @@ function jugarRonda(boton){
         success: function(r) {
             paintAns("Inicio Juego"); // Convierte la respuesta a string si es necesario
             cartas();
+            zonas();
         }
-    });
-    
+    });  
     //cartas();
 }
 

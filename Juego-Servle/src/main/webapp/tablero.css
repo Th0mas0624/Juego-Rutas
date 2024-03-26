@@ -1,6 +1,9 @@
 @charset "ISO-8859-1";
 
-
+label{
+	 width: 100px;
+    height: 150px;
+}
 
 .tablero{
 	display: flex;
@@ -49,7 +52,7 @@
     display: flex;
     flex-direction: row;
     background-color: red;		
-
+	justify-content: center;
 }
 
 
@@ -60,8 +63,8 @@
 	background-position: center; /* Centra la imagen en la p�gina */
 	justify-content: center; /* Centra horizontalmente */
   	align-items: center; /* Centra verticalmente */
-  	height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
-	flex-direction: column;
+  	height: 70vh; /* Asegura que el body ocupe toda la altura de la ventana */
+	flex-direction: row;
 	background-color: red;
 	width: 100%;
 }
@@ -74,8 +77,8 @@
 	background-position: center; /* Centra la imagen en la p�gina */
 	justify-content: center; /* Centra horizontalmente */
   	align-items: center; /* Centra verticalmente */
-  	height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
-	flex-direction: column;
+  	height: 70vh; /* Asegura que el body ocupe toda la altura de la ventana */
+	flex-direction: row;
 	background-color: red;
 	width: 100%;
 }
