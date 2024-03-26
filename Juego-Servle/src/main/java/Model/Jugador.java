@@ -98,13 +98,15 @@ public class Jugador {
         }
     }
 
-    public void descartarCarta(ArrayList<Carta> mazoDescarte, String nombre){
+    public boolean descartarCarta(ArrayList<Carta> mazoDescarte, String nombre){
         Carta cartaSeleccionada = buscarCartaSeleccionada(nombre);
         for (int i=0; i<mano.size(); i++) {
             if (mano.get(i) == cartaSeleccionada) {
                 mazoDescarte.add(mano.remove(i));
+                return true;
             }
         }
+        return false;
     }
 
     public ArrayList<Carta> getMano(){

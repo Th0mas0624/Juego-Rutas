@@ -19,24 +19,36 @@ public class JugarRonda extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	Juego j;
+	boolean auxiliar = false;
     public JugarRonda() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		auxiliar = false;
 		if(this.getServletContext().getAttribute("juego") != null) {
 			j = (Juego) this.getServletContext().getAttribute("juego");
 			PrintWriter out=response.getWriter();
-			String pa=request.getParameter("carta");
-			System.out.println("Boton undido: "+pa);
-			//j.jugarRonda();
+			String carta=request.getParameter("carta");
+			String accion = request.getParameter("accion");
+			
+			System.out.println("Boton undido: "+carta);
 			System.out.println("Jugador Actual: "+j.jugadorActual);
-			boolean auxiliar = j.jugadorActual.jugada(j.getEquipos(), pa);
+			
+			if (accion.equals("jugar")) {
+				auxiliar = j.jugadorActual.jugada(j.getEquipos(), carta);	
+			}else{
+				auxiliar = j.jugadorActual.descartarCarta(j.getMazoJuego().getCartasDescartadas(), carta);
+			}
+			
 			if(auxiliar) {
 				j.jugadorActual.recogerCartaMazo(j.getMazoJuego().getCartasDisponibles());
 				System.out.println("Carta recogida exitosamente");
 			}
+			
+			out.print(auxiliar);
 			out.flush();
+			
 		}
 	}
 

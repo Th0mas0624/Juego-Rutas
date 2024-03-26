@@ -7,6 +7,7 @@ let diccionarioImagenes = {
     "Model.Builder.Distancia200":"200","Model.Builder.Distancia100":"100","Model.Builder.Distancia75":"75","Model.Builder.Distancia50":"50","Model.Builder.Distancia25":"25"
     };
 
+let boton;
 /*
     private String[] rutas = {"falta de combustible","velocidad maxima","pinchadura","choque","stop",
     "combustible","fin velocidad maxima","rueda de auxilio","taller","siga",
@@ -84,33 +85,53 @@ function pintarLasZonas(zonas){
 		if (zona != "null"){
 			label.style.backgroundImage = `url(${rutaImagen})`;
 			label.style.backgroundSize = `cover`;
-			label.setAttribute("data-nombre", Object.keys(diccionarioImagenes).find(llave => diccionarioImagenes[llave] === diccionarioImagenes[label]));	
+			label.setAttribute("data-nombre", Object.keys(diccionarioImagenes).find(llave => diccionarioImagenes[llave] === diccionarioImagenes[zona]));	
 		}
 	});
 }
  
-function jugarRonda(boton){
+function jugarRonda(accion){
+	
 	let carta = boton.getAttribute("data-nombre");
-	//console.log(boton);
-	//console.log(carta);
-	//console.log(boton.getAttribute("data-nombre"));
+	console.log("Boton undido: "+carta);
+	document.getElementById("opciones").style.display = "none";
+	
+    var advertencia = document.getElementById("advertencia");
+    
+    
 	let mydata={
 		carta:carta,
+		accion:accion,
 	};
 	$.ajax({
         url: 'jugar',
         type: 'GET',
         data: mydata,
         success: function(r) {
-            paintAns("Inicio Juego"); // Convierte la respuesta a string si es necesario
-            cartas();
-            zonas();
+            //paintAns(r); // Convierte la respuesta a string si es necesario
+            console.log(r)
+            if(r == "true"){
+	            cartas();
+	            zonas();
+	            $("#advertencia").html("<h2> Carta Jugada Exitosamente</h2>");				
+			}else if(r = "false"){
+				$("#advertencia").html("<h2> Esta Carta no se puede jugar, descartala o juega otra</h2>");	
+			}
         }
-    });  
+    }); 
+    advertencia.style.display = 'block';
+    
+    setTimeout(function(){
+		advertencia.style.display = 'none';
+	},5000);
+    
     //cartas();
 }
 
- 
+function botonUndido(b){
+	boton = b;
+	document.getElementById("opciones").style.display = "flex";
+}
 function iniciar2Jugadores(){
 	
 	console.log("Si se llama");
