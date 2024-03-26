@@ -16,6 +16,8 @@ public class Jugador {
     }
 
     //
+    
+    
     public boolean jugada(ArrayList<Equipo> equipos, String nombreCarta){
         System.out.println("Se paso a la jugada la carta: "+nombreCarta);
         Equipo miEquipo = null;

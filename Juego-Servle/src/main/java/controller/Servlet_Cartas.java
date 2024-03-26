@@ -26,12 +26,13 @@ public class Servlet_Cartas extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	Juego j;
-	List<String> cartasJugadores = new ArrayList<>();
+	List<String> cartasJugadores;
     public Servlet_Cartas() {
         super();
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		cartasJugadores = new ArrayList<>();
 		
 		//response.getWriter().append("Served at: ").append(request.getContextPath());
 		System.out.println("Desde cartas "+this.getServletContext().getAttribute("juego"));
@@ -42,16 +43,11 @@ public class Servlet_Cartas extends HttpServlet {
 			/* Las primeras 6 cartas pertenecen al jugador 1 y las otras 6 pertenecen al jugador 2
 			 * Esta solucion es una aproximacion que solo funciona cuando hay 2 jugadores
 			 * */
-			for (Equipo equipo : j.getEquipos()) {
-				System.out.println(equipo);
-				for (Jugador jugador: equipo.getJugadores()) {
-					System.out.println(jugador);
-					for (Carta carta : jugador.getMano()) {
-						System.out.println(carta);
-						cartasJugadores.add(carta.getClass().getName()+carta.getfuncion());
-						System.out.println(carta.getClass().getName()+carta.getfuncion());
-					}
-				}
+			j.jugarRonda();
+			for (Carta carta : j.jugadorActual.getMano()) {
+				//System.out.println(carta);
+				cartasJugadores.add(carta.getClass().getName()+carta.getfuncion());
+				//System.out.println(carta.getClass().getName()+carta.getfuncion());
 			}
 			
 			String json = new Gson().toJson(cartasJugadores); // Convierte la lista a JSON usando Gson

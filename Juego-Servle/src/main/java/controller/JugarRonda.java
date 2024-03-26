@@ -29,7 +29,7 @@ public class JugarRonda extends HttpServlet {
 			PrintWriter out=response.getWriter();
 			String pa=request.getParameter("carta");
 			System.out.println("Boton undido: "+pa);
-			j.jugarRonda();
+			//j.jugarRonda();
 			System.out.println("Jugador Actual: "+j.jugadorActual);
 			boolean auxiliar = j.jugadorActual.jugada(j.getEquipos(), pa);
 			if(auxiliar) {

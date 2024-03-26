@@ -6,7 +6,7 @@
 	<link rel="stylesheet" href="index.css">
 	<link rel="stylesheet" href="tablero.css">
 </head>
-<body>
+<body id="bod">
 
 	<!-- 
 	<input id="numJugadores" placeholder="Numero de juegadores:">
@@ -26,10 +26,10 @@
 	
 		<!-- <button id="Individual" class="ImgBotones" onclick="mostrarBotonesIndividual()">Modo Individual</button> -->
 		<!-- <button id="Equipos" class="ImgBotones" onclick="mostrarBotonesEquipos()">Modo Equipos</button> -->
-	    <button id="2 Jugadores" class="ImgBotones" style="display: block;" onclick="iniciar2Jugadores()">2 Jugadores</button>
+	    <button id="2 Jugadores" class="ImgBotones" onclick="iniciar2Jugadores()">2 Jugadores</button>
 	    <!-- <button id="3 Jugadores" class ="ImgBotones" style="display: block">3 Jugadores</button> -->
 	    
-	    <button id="2 Equipos" class="ImgBotones" style="display: block;" onclick="iniciar2Equipos()">2 Equipos</button>
+	    <button id="2 Equipos" class="ImgBotones"  onclick="iniciar2Equipos()">2 Equipos</button>
 	    <!-- <button id="3 Equipos" class="ImgBotones" style="display: block;">3 Equipos</button> -->
    
 	    <!-- <button id="botonAtras" class="ImgBotones" style="display: none;" onclick="volverAtras()">Atrás</button> -->
@@ -43,37 +43,33 @@
 	    </div>
 
 	</div>
-	<div id = "contenedor" class="contenedor-principal" style="display: none ">
-		<div class="Equipo1">
-			<!-- Mazo1: mano del jugador 1-->
-			<div id="Mazo1">
-				<label for="nombre">Jugador 1:</label>
-				<button id="Carta1" data-nombre ="1" onclick="jugarRonda(this)"></button>
-				<button id="Carta2" data-nombre ="2" onclick="jugarRonda(this)"></button>
-				<button id="Carta3" data-nombre ="3" onclick="jugarRonda(this)"></button>
-				<button id="Carta4" data-nombre ="4" onclick="jugarRonda(this)"></button>
-				<button id="Carta5" data-nombre ="5" onclick="jugarRonda(this)"></button>
-				<button id="Carta6" data-nombre ="6" onclick="jugarRonda(this)"></button>
+
+	<div id= "table" class="tablero" style="display:none">
+		<div id = "Equipos">
+			<div class="Equipo1">
+				<!-- Mazo1: mano del jugador 1-->
+				<div id="Puntaje1" class="Puntaje">PUNTAJE 1</div>
+				<div id="Zona1">
+					<!-- <img alt="" src="Pictures/200.png"> -->
+				</div>
 			</div>
-			<div id="Zona1">
-				<img alt="" src="Pictures/200.png">
-			</div>
-		</div>
-		
-		<div class="Equipo2">
-			<div id="Zona2">
-			</div>
-			<div id="Mazo2">
-				<label for="nombre">Jugador 2:</label>
-				<button id="Carta7" data-nombre ="7" onclick="jugarRonda(this)"></button>
-				<button id="Carta8" data-nombre ="8" onclick="jugarRonda(this)"></button>
-				<button id="Carta9" data-nombre ="9" onclick="jugarRonda(this)"></button>
-				<button id="Carta10" data-nombre ="10" onclick="jugarRonda(this)"></button>
-				<button id="Carta11" data-nombre ="11" onclick="jugarRonda(this)"></button>
-				<button id="Carta12" data-nombre ="12" onclick="jugarRonda(this)"></button>
+			
+			<div class="Equipo2">
+				<div id="Puntaje2" class="Puntaje">PUNTAJE 2</div>
+				<div id="Zona2">
+				</div>
 			</div>
 		</div>
-	</div>
+		<div id="Mazo">	
+					<button class ="btn-cartas btn-cartas-Izq" id="Carta1" data-nombre ="1" onclick="jugarRonda(this)"></button>
+					<button class ="btn-cartas btn-cartas-Izq" id="Carta2" data-nombre ="2" onclick="jugarRonda(this)"></button>
+					<button class ="btn-cartas btn-cartas-Izq" id="Carta3" data-nombre ="3" onclick="jugarRonda(this)"></button>
+					<button class ="btn-cartas btn-cartas-Izq" id="Carta4" data-nombre ="4" onclick="jugarRonda(this)"></button>
+					<button class ="btn-cartas btn-cartas-Izq" id="Carta5" data-nombre ="5" onclick="jugarRonda(this)"></button>
+					<button class ="btn-cartas btn-cartas-Izq" id="Carta6" data-nombre ="6" onclick="jugarRonda(this)"></button>
+		</div>
+	</div>	
+	
 </body>
 
 <script type="text/javascript" src="js/MyScript.js"></script>

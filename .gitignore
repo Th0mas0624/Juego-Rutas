@@ -1,6 +1,18 @@
-.classpath
-.project
-.settings/
-build/
-bin/
-Juego/
+/.idea
+/workspace.xml
+/out
+/lib
+
+
+# Ignorar archivos generados automáticamente
+*.class
+*.jar
+*.iml
+
+# Ignorar archivos de configuración local
+.vscode/
+.idea/
+
+# Ignorar archivos de compilación
+/target/
+/out/

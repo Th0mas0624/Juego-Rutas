@@ -1,56 +1,57 @@
 @charset "ISO-8859-1";
-body {
+
+
+
+.tablero{
 	display: flex;
-	justify-content: center;
-	height: 100vh;
-	align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Ocupa todo el alto de la ventana */
+    width: 100vw;
 }
 
-.contenedor-principal {
-    display: flex;
-    justify-content: space-between; /* Alinea a los hijos a los extremos */
-    width: 100%; /* Ocupa todo el ancho disponible */
+/*.tablero > div {
+	flex: 1; /* Hace que cada div hijo ocupe el mismo espacio 
+	display: flex;
+	justify-content: center; /* Centra horizontalmente 
+	align-items: center; /* Centra verticalmente 
+}*/
+
+#Equipos{
+	flex:7;
+	display: flex;
+	
 }
 
+.Puntaje{
+	flex:3;
+	display:flex;
+}
 .Equipo1, .Equipo2 {
-	flex: 1; /* Esto hace que ambos contenedores tomen la misma cantidad de espacio disponible */
+	flex: 7; /* Esto hace que ambos contenedores tomen la misma cantidad de espacio disponible */
     display: flex; /* Activa Flexbox para estos contenedores también, si necesitas más control interno */
     align-items: center; /* Centra el contenido verticalmente */
-    flex-direction: row;
+    flex-direction: column;
     /*)width: 600px;*/
 }
 
-.Equipo1 button, .Equipo2 button {
+.btn-cartas{
     width: 100px;
-    height: 200px;
-    margin: 5px;
+    height: 150px;
     background-color: #f0f0f0;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.Equipo1{
-	text-align: left;
-	justify-content: flex-start;
-}
-.Equipo2{
-	text-align: right;
-	justify-content: flex-end;
-}
-#Mazo1{
+
+
+#Mazo{
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Alinea los botones al centro del #Mazo1 */
-    background-color: red;
+    flex-direction: row;
+    background-color: red;		
+
 }
 
-#Mazo2{
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Alinea los botones al centro del #Mazo1 */
-    background-color: blue;
-}
 
 #Zona1{
 	display: flex;
@@ -62,7 +63,7 @@ body {
   	height: 100vh; /* Asegura que el body ocupe toda la altura de la ventana */
 	flex-direction: column;
 	background-color: red;
-	width: 100%;	
+	width: 100%;
 }
 	
 

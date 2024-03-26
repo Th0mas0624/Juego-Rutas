@@ -44,6 +44,7 @@ public class Juego {
         }else{
             System.err.println("Modo de juego invalido");
         }
+        //jugadorActual = this.equipos.get(0).getJugadores().get(0);
         iniciarCartas(true);
         return true;
     }
@@ -78,7 +79,7 @@ public class Juego {
                     for (Equipo equipo1 : equipos) {
                         equipo1.setMillasRecorridas(0);
                     }
-                    JOptionPane.showMessageDialog(null,"Equipo ganador de la ronda: "+equipo.getNumeroEquipo());
+                    System.out.println("Equipo ganador de la ronda: "+equipo.getNumeroEquipo());
                 }
             }
         }

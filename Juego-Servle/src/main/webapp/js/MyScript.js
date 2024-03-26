@@ -53,15 +53,15 @@ function pintarLasCartas(cartas) {
     cartas.forEach((carta, index) => {
         // Obtener el botón correspondiente (Carta1, Carta2, ..., Carta12)
         let boton = document.getElementById(`Carta${index + 1}`);
-        console.log(boton)
+        //console.log(boton)
         // Traducir el identificador de la carta a una ruta de imagen usando diccionarioImagenes
         let rutaImagen = "Pictures/"+diccionarioImagenes[carta]+".png";
-        
+        //console.log(rutaImagen)
         // Establecer la imagen en el botón
         boton.style.backgroundImage = `url(${rutaImagen})`;
         boton.style.backgroundSize = 'cover'; // Asegura que la imagen cubra todo el botón
         boton.setAttribute("data-nombre",Object.keys(diccionarioImagenes).find(llave => diccionarioImagenes[llave] === diccionarioImagenes[carta]));
-        console.log(boton.getAttribute("data-nombre"));
+        //console.log(boton.getAttribute("data-nombre"));
     	//boton.style.transform = "rotate(90deg)";
         
     });
@@ -87,21 +87,26 @@ function jugarRonda(boton){
     
     //cartas();
 }
+
  
 function iniciar2Jugadores(){
-	iniciarJuego(2,"Individual");
+	
 	console.log("Si se llama");
 	document.getElementById("botones").style.display = "none";
-	document.getElementById("contenedor").style.display = "flex";
+	document.getElementById("table").style.display = "flex";
+	document.getElementById("bod").style.backgroundImage = "none";
 	//window.location.href = 'Tablero.html'; // Redirecciona a dosJugadores.html
+	iniciarJuego(2,"Individual");
 	//cartas();
 }
 
 function iniciar2Equipos(){
-	iniciarJuego(4,"Equipos");
+	
 	console.log("Si se llama");
 	document.getElementById("botones").style.display = "none";
-	document.getElementById("contenedor").style.display = "flex";
+	document.getElementById("tablero").style.display = "flex";
+	document.getElementById("bod").style.backgroundImage = "none";
+	iniciarJuego(4,"Equipos");
 	//window.location.href = 'Tablero.html'; // Redirecciona a dosJugadores.html
 	//cartas();
 }
@@ -111,7 +116,7 @@ function reglasJuego(){
     // Especifica la ruta de tu imagen
     imagen.src = 'Pictures/200.png'; // Asegúrate de reemplazar esto con la URL real de tu imagen
     // Hace el contenedor visible
-    contenedor.style.display = "block";
+    contenedor.style.display = "flex";
 }
 
 function cerrarImagen() {
